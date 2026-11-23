@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telur Skie Tenang — Peternakan &amp; Distribusi Telur Ayam Ras Jayapura</title>
+    <meta name="description" content="Telur Skie Tenang — Peternakan dan distribusi telur ayam ras segar di Jayapura, Papua. Lihat galeri foto dan video aktivitas kandang serta pesan telur ukuran Kecil, Sedang, dan Besar langsung via WhatsApp.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            #receipt-print-area {
+                display: block !important;
+                position: static !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-200 selection:text-slate-900">
+
+    <!-- ===================================================================== -->
+    <!-- NOTIFIKASI TOAST NON-BLOCKING                                         -->
+    <!-- ===================================================================== -->
+    <div id="toast-container" class="fixed bottom-4 right-4 z-[70] flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0 no-print"></div>
+
+    <!-- ===================================================================== -->
+    <!-- TAMPILAN 1: HALAMAN UTAMA PUBLIK (BERSIH & MINIMALIS)                -->
+    <!-- ===================================================================== -->
+    <div id="public-view" class="min-h-screen flex flex-col">
+        <!-- Navbar Publik -->
+        <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+                <a href="#" class="flex items-center gap-3 min-w-0">
+                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 flex items-center justify-center shadow-md shadow-amber-500/20 shrink-0">
+                        <i class="fa-solid fa-egg text-lg sm:text-xl"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <span class="block font-extrabold text-sm sm:text-lg tracking-tight text-slate-900 truncate">Telur Skie Tenang</span>
+                        <span class="block text-[11px] sm:text-xs font-medium text-slate-500 truncate">Peternakan &amp; Distribusi Telur Ayam Ras • Jayapura</span>
+                    </div>
+                </a>
+
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <a href="#galeri-aktivitas" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-photo-film text-amber-500"></i>
+                        <span>Galeri Aktivitas</span>
+                    </a>
+                    <a href="#kontak-pemesanan" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                        <i class="fa-brands fa-whatsapp text-emerald-600"></i>
+                        <span>Pesan Telur</span>
+                    </a>
+                    <button type="button" onclick="openPinModal()" class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold shadow-xs transition cursor-pointer">
+                        <i class="fa-solid fa-lock text-amber-400"></i>
+                        <span>Login Admin</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10 sm:space-y-14">
+            <!-- Hero Banner Profil Usaha -->
+            <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-amber-950 text-white p-6 sm:p-10 lg:p-12 shadow-xl">
+                <div class="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-amber-400/15 blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-16 -bottom-16 w-72 h-72 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 max-w-3xl space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-bold">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Jayapura, Papua • Panen Segar Setiap Hari</span>
+                    </div>
+
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                        Telur Ayam Ras Segar Langsung dari <span class="text-amber-400">Telur Skie Tenang</span>
+                    </h1>
+
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+                        Melayani kebutuhan rumah tangga, warung makan, toko kue, dan mitra grosir di wilayah Jayapura dan sekitarnya. Tersedia pilihan ukuran <strong class="text-white">Kecil</strong>, <strong class="text-white">Sedang</strong>, dan <strong class="text-white">Besar</strong> yang dipanen dan disortir setiap hari.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap items-center gap-3">
+                        <button type="button" onclick="openWaOrderModal('wa1')" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/25 transition cursor-pointer">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span id="hero-wa-1-label">Pesan via WA: Esther</span>
+                        </button>
+                        <button type="button" onclick="openWaOrderModal('wa2')" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm backdrop-blur-xs transition cursor-pointer">
+                            <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i>
+                            <span id="hero-wa-2-label">Pesan via WA: Rut</span>
+                        </button>
+                        <a href="#galeri-aktivitas" class="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-amber-400/15 hover:bg-amber-400/25 text-amber-200 border border-amber-400/30 font-bold text-sm transition">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <span>Lihat Foto &amp; Video</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Galeri Foto & Video Aktivitas Peternakan -->
+            <section id="galeri-aktivitas" class="space-y-5 scroll-mt-24">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-amber-600 mb-1">
+                            <i class="fa-solid fa-camera-retro"></i> Dokumentasi Lapangan
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Galeri Foto &amp; Video Aktivitas</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Klik foto atau video untuk melihat tampilan penuh dan keterangan aktivitas kandang.</p>
+                    </div>
+
+                    <!-- Filter Media -->
+                    <div class="inline-flex p-1 rounded-2xl bg-slate-200/80 self-start sm:self-auto">
+                        <button type="button" onclick="setPublicGalleryFilter('all')" id="pub-filter-all" class="pub-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-900 shadow-2xs transition cursor-pointer">
+                            Semua
+                        </button>
+                        <button type="button" onclick="setPublicGalleryFilter('photo')" id="pub-filter-photo" class="pub-filter-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer">
+                            <i class="fa-solid fa-image mr-1"></i> Foto
+                        </button>
+                        <button type="button" onclick="setPublicGalleryFilter('video')" id="pub-filter-video" class="pub-filter-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer">
+                            <i class="fa-solid fa-video mr-1"></i> Video
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grid Galeri Publik -->
+                <div id="public-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+            </section>
+
+            <!-- Bagian Kontak Pemesanan WhatsApp & Media Sosial -->
+            <section id="kontak-pemesanan" class="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/80 shadow-xs space-y-6 scroll-mt-24">
+                <div class="max-w-2xl">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-600 mb-1">
+                        <i class="fa-brands fa-whatsapp"></i> Pemesanan Langsung WhatsApp
+                    </span>
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Hubungi Kontak Pemesanan</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        Pilih kontak di bawah untuk melihat <strong class="text-slate-700">jumlah stok telur tersedia</strong> (Rak &amp; Butir), mengisi <strong class="text-slate-700">informasi pembeli</strong>, serta menentukan <strong class="text-slate-700">ukuran dan jumlah pesanan</strong> langsung ke WhatsApp.
+                    </p>
+                </div>
+
+                <!-- Kartu Kontak WhatsApp Esther & Rut -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                    <button type="button" onclick="openWaOrderModal('wa1')" class="w-full text-left group rounded-2xl p-5 border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white hover:border-emerald-500 hover:shadow-lg transition-all flex items-center justify-between gap-4 cursor-pointer">
+                        <div class="flex items-center gap-4 min-w-0">
+                            <div id="card-wa-1-avatar" class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform shrink-0">
+                                E
+                            </div>
+                            <div class="min-w-0">
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700">Kontak Pemesanan 1</span>
+                                <h3 id="card-wa-1-name" class="text-lg font-extrabold text-slate-900 truncate">Esther</h3>
+                                <p id="card-wa-1-phone" class="text-sm font-semibold text-slate-600 flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-phone text-xs text-emerald-600"></i>
+                                    <span>082399639927</span>
+                                </p>
+                            </div>
+                        </div>
+                        <span class="px-4 py-2.5 rounded-xl bg-emerald-600 group-hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center gap-1.5 shadow-xs shrink-0 transition">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Pesan WA</span>
+                        </span>
+                    </button>
+
+                    <button type="button" onclick="openWaOrderModal('wa2')" class="w-full text-left group rounded-2xl p-5 border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white hover:border-emerald-500 hover:shadow-lg transition-all flex items-center justify-between gap-4 cursor-pointer">
+                        <div class="flex items-center gap-4 min-w-0">
+                            <div id="card-wa-2-avatar" class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform shrink-0">
+                                R
+                            </div>
+                            <div class="min-w-0">
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700">Kontak Pemesanan 2</span>
+                                <h3 id="card-wa-2-name" class="text-lg font-extrabold text-slate-900 truncate">Rut</h3>
+                                <p id="card-wa-2-phone" class="text-sm font-semibold text-slate-600 flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-phone text-xs text-emerald-600"></i>
+                                    <span>081326562470</span>
+                                </p>
+                            </div>
+                        </div>
+                        <span class="px-4 py-2.5 rounded-xl bg-emerald-600 group-hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center gap-1.5 shadow-xs shrink-0 transition">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Pesan WA</span>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Tautan Media Sosial: Instagram, Facebook & TikTok -->
+                <div class="pt-4 border-t border-slate-100 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Media Sosial Telur Skie Tenang</span>
+                        <span class="text-[11px] text-slate-400">Dokumentasi &amp; informasi terbaru</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                        <a id="public-soc-instagram" href="#kontak-pemesanan" onclick="return handleSocialClick(event, 'instagram')" class="group flex items-center gap-3.5 p-4 rounded-2xl border border-slate-200 hover:border-pink-400 bg-gradient-to-r from-pink-50/50 to-amber-50/40 hover:shadow-md transition">
+                            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="text-xs font-extrabold text-slate-900">Instagram</div>
+                                <div id="public-soc-instagram-label" class="text-xs text-slate-500 truncate">@telurskietenang</div>
+                            </div>
+                        </a>
+
+                        <a id="public-soc-facebook" href="#kontak-pemesanan" onclick="return handleSocialClick(event, 'facebook')" class="group flex items-center gap-3.5 p-4 rounded-2xl border border-slate-200 hover:border-blue-400 bg-blue-50/40 hover:shadow-md transition">
+                            <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="text-xs font-extrabold text-slate-900">Facebook</div>
+                                <div id="public-soc-facebook-label" class="text-xs text-slate-500 truncate">Telur Skie Tenang Jayapura</div>
+                            </div>
+                        </a>
+
+                        <a id="public-soc-tiktok" href="#kontak-pemesanan" onclick="return handleSocialClick(event, 'tiktok')" class="group flex items-center gap-3.5 p-4 rounded-2xl border border-slate-200 hover:border-slate-800 bg-slate-100/60 hover:shadow-md transition">
+                            <div class="w-11 h-11 rounded-xl bg-slate-900 text-white flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="text-xs font-extrabold text-slate-900">TikTok</div>
+                                <div id="public-soc-tiktok-label" class="text-xs text-slate-500 truncate">@telurskietenang</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Publik -->
+        <footer class="bg-white border-t border-slate-200/80 py-6 mt-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+                <p>&copy; <span id="footer-year">2026</span> <strong class="text-slate-800">Telur Skie Tenang</strong> — Peternakan &amp; Distribusi Telur Ayam Ras, Jayapura.</p>
+                <p>Segar • Higienis • Siap Antar &amp; Ambil di Kandang</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- TAMPILAN 2: DASHBOARD ADMIN (ADMIN 1 & ADMIN 2)                       -->
+    <!-- ===================================================================== -->
+    <div id="admin-view" class="hidden min-h-screen flex-col bg-slate-100">
+        <!-- Header Admin -->
+        <header class="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-2xs no-print">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                    <div class="w-9 h-9 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex items-center gap-2">
+                            <span class="font-extrabold text-sm sm:text-base text-slate-900 truncate">Telur Skie Tenang</span>
+                            <span id="admin-role-badge" class="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">Admin</span>
+                        </div>
+                        <p id="admin-header-subtitle" class="text-[11px] text-slate-500 truncate">Panel Pengelolaan Usaha</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 shrink-0">
+                    <button type="button" onclick="exitAdminMode()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition cursor-pointer">
+                        <i class="fa-solid fa-eye mr-1"></i> Lihat Halaman Publik
+                    </button>
+                    <button type="button" onclick="logoutAdmin()" class="px-3 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold transition cursor-pointer">
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i> Keluar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigasi Tab Admin -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 border-t border-slate-100 flex items-center gap-2 overflow-x-auto no-scrollbar">
+                <button type="button" id="admin-tab-ringkasan" onclick="switchAdminTab('ringkasan')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
+                    <i class="fa-solid fa-chart-pie"></i> Ringkasan &amp; Keuangan
+                </button>
+                <button type="button" id="admin-tab-stok" onclick="switchAdminTab('stok')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
+                    <i class="fa-solid fa-egg"></i> Stok &amp; Panen
+                </button>
+                <button type="button" id="admin-tab-kasir" onclick="switchAdminTab('kasir')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
+                    <i class="fa-solid fa-cash-register"></i> Kasir Penjualan
+                </button>
+                <button type="button" id="admin-tab-pengeluaran" onclick="switchAdminTab('pengeluaran')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
+                    <i class="fa-solid fa-wallet"></i> Pengeluaran
+                </button>
+                <button type="button" id="admin-tab-galeri" onclick="switchAdminTab('galeri')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
+                    <i class="fa-solid fa-photo-film"></i> Kelola Galeri
+                </button>
+                <button type="button" id="admin-tab-kontak" onclick="switchAdminTab('kontak')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
+                    <i class="fa-solid fa-address-book"></i> Kontak &amp; PIN
+                </button>
+            </div>
+        </header>
+
+        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+            <!-- PANEL 1: RINGKASAN & KEUANGAN (ADMIN 2) -->
+            <section id="panel-ringkasan" class="admin-panel hidden space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">Ringkasan Stok &amp; Keuangan</h2>
+                        <p class="text-xs text-slate-500">Laporan pemasukan penjualan, pengeluaran operasional, dan laba bersih.</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button type="button" onclick="loadDemoData()" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-xs font-bold text-slate-700 cursor-pointer">
+                            <i class="fa-solid fa-rotate mr-1"></i> Reset Data Demo
+                        </button>
+                        <button type="button" onclick="exportFinancialCSV()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-xs font-extrabold text-white cursor-pointer">
+                            <i class="fa-solid fa-file-csv mr-1"></i> Ekspor CSV
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Kartu KPI -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs">
+                        <span class="text-xs font-bold text-slate-500">Total Stok Gudang</span>
+                        <div id="kpi-total-trays" class="text-2xl font-extrabold text-slate-900 mt-2">0 Rak</div>
+                        <p id="kpi-total-eggs" class="text-[11px] font-semibold text-slate-500 mt-1">0 Butir</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs">
+                        <span class="text-xs font-bold text-slate-500">Pemasukan Lunas</span>
+                        <div id="kpi-income-paid" class="text-2xl font-extrabold text-emerald-700 mt-2">Rp 0</div>
+                        <p id="kpi-income-kasbon" class="text-[11px] font-semibold text-amber-700 mt-1">Kasbon Belum Lunas: Rp 0</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs">
+                        <span class="text-xs font-bold text-slate-500">Total Pengeluaran</span>
+                        <div id="kpi-total-expense" class="text-2xl font-extrabold text-rose-700 mt-2">Rp 0</div>
+                        <p id="kpi-expense-count" class="text-[11px] font-semibold text-slate-500 mt-1">0 catatan pengeluaran</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs">
+                        <span class="text-xs font-bold text-slate-500">Laba Bersih Kas</span>
+                        <div id="kpi-net-profit" class="text-2xl font-extrabold text-blue-700 mt-2">Rp 0</div>
+                        <p class="text-[11px] font-semibold text-slate-400 mt-1">Pemasukan Lunas &minus; Pengeluaran</p>
+                    </div>
+                </div>
+
+                <!-- Grafik -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-3">Produksi Panen vs Penjualan (7 Hari Terakhir)</h3>
+                        <div class="h-64"><canvas id="prodSalesChart"></canvas></div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-3">Komposisi Stok per Ukuran</h3>
+                        <div class="h-64"><canvas id="stockCompChart"></canvas></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANEL 2: STOK & PANEN (ADMIN 1 & ADMIN 2) -->
+            <section id="panel-stok" class="admin-panel hidden space-y-6">
+                <div id="stok-size-cards" class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs h-fit">
+                        <h3 id="harvest-form-title" class="text-sm font-extrabold text-slate-900 mb-4">Catat Panen Telur</h3>
+                        <form id="harvest-form" class="space-y-3.5">
+                            <input type="hidden" id="harvest-edit-id">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Tanggal Panen</label>
+                                <input type="date" id="harvest-date" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Ukuran Telur</label>
+                                <select id="harvest-size" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                                    <option value="Kecil">Kecil</option>
+                                    <option value="Sedang" selected>Sedang</option>
+                                    <option value="Besar">Besar</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Jumlah</label>
+                                    <input type="number" id="harvest-qty" min="1" required placeholder="10" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Satuan</label>
+                                    <select id="harvest-unit" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                                        <option value="rak">Rak (30 Butir)</option>
+                                        <option value="butir">Butir</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Catatan Kandang</label>
+                                <input type="text" id="harvest-note" placeholder="Contoh: Panen Pagi Kandang A" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="flex gap-2 pt-1">
+                                <button type="submit" id="harvest-submit-btn" class="flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs sm:text-sm cursor-pointer">
+                                    <i class="fa-solid fa-plus-circle mr-1.5"></i> Simpan Panen
+                                </button>
+                                <button type="button" id="harvest-cancel-edit-btn" onclick="resetHarvestForm()" class="hidden px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 cursor-pointer">
+                                    Batal
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs overflow-x-auto">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-4">Riwayat Panen &amp; Stok Masuk</h3>
+                        <table class="w-full text-left text-xs">
+                            <thead class="border-b border-slate-200 text-slate-500 uppercase">
+                                <tr>
+                                    <th class="py-2.5 px-2">Tanggal</th>
+                                    <th class="py-2.5 px-2">Ukuran</th>
+                                    <th class="py-2.5 px-2">Jumlah</th>
+                                    <th class="py-2.5 px-2">Catatan</th>
+                                    <th class="py-2.5 px-2 text-right">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="harvest-table-body" class="divide-y divide-slate-100"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANEL 3: KASIR PENJUALAN (ADMIN 1 & ADMIN 2) -->
+            <section id="panel-kasir" class="admin-panel hidden space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs h-fit">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-4">Input Transaksi Kasir</h3>
+                        <form id="sale-form" class="space-y-3.5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Tanggal Transaksi</label>
+                                <input type="date" id="sale-date" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Nama Pembeli / Toko</label>
+                                <input type="text" id="sale-customer" required placeholder="Contoh: Ibu Maria / Toko Abepura" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <label class="text-xs font-bold text-slate-600">Ukuran Telur</label>
+                                    <span id="sale-available-stock" class="text-[11px] font-bold text-emerald-700">0 Rak</span>
+                                </div>
+                                <select id="sale-size" onchange="onSaleSizeChange()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-emerald-500">
+                                    <option value="Kecil">Kecil</option>
+                                    <option value="Sedang" selected>Sedang</option>
+                                    <option value="Besar">Besar</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Jumlah (Rak)</label>
+                                    <input type="number" id="sale-trays" min="1" value="1" required oninput="updateSaleTotalPreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Harga / Rak (Rp)</label>
+                                    <input type="number" id="sale-price" min="0" step="500" value="60000" required oninput="updateSaleTotalPreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Status Pembayaran</label>
+                                <select id="sale-status" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-emerald-500">
+                                    <option value="Lunas">Lunas</option>
+                                    <option value="Kasbon">Kasbon (Belum Lunas)</option>
+                                </select>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                                <span class="text-xs font-bold text-slate-500">Total Tagihan</span>
+                                <span id="sale-total-display" class="text-base font-extrabold text-slate-900">Rp 60.000</span>
+                            </div>
+                            <button type="submit" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm cursor-pointer">
+                                <i class="fa-solid fa-check-circle mr-1.5"></i> Simpan Penjualan
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs overflow-x-auto">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <h3 class="text-sm font-extrabold text-slate-900">Daftar Transaksi Penjualan</h3>
+                            <select id="sales-filter-status" onchange="renderSalesTable()" class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700">
+                                <option value="all">Semua Status</option>
+                                <option value="Lunas">Lunas</option>
+                                <option value="Kasbon">Kasbon</option>
+                            </select>
+                        </div>
+                        <table class="w-full text-left text-xs">
+                            <thead class="border-b border-slate-200 text-slate-500 uppercase">
+                                <tr>
+                                    <th class="py-2.5 px-2">Pembeli</th>
+                                    <th class="py-2.5 px-2">Produk</th>
+                                    <th class="py-2.5 px-2">Total</th>
+                                    <th class="py-2.5 px-2">Status</th>
+                                    <th class="py-2.5 px-2 text-right">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sales-table-body" class="divide-y divide-slate-100"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANEL 4: PENGELUARAN (ADMIN 2) -->
+            <section id="panel-pengeluaran" class="admin-panel hidden space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs h-fit">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-4">Catat Pengeluaran</h3>
+                        <form id="expense-form" class="space-y-3.5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Tanggal</label>
+                                <input type="date" id="expense-date" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-rose-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Kategori</label>
+                                <select id="expense-category" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-rose-500">
+                                    <option value="Pakan Ayam">Pakan Ayam</option>
+                                    <option value="Obat & Vitamin">Obat &amp; Vitamin</option>
+                                    <option value="Tray / Rak Telur">Tray / Rak Telur</option>
+                                    <option value="Operasional & Transport">Operasional &amp; Transport</option>
+                                    <option value="Gaji & Tenaga Kerja">Gaji &amp; Tenaga Kerja</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Nominal (Rp)</label>
+                                <input type="number" id="expense-amount" min="100" required placeholder="250000" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-rose-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Keterangan</label>
+                                <input type="text" id="expense-note" required placeholder="Contoh: Pakan layer 2 karung" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-rose-500">
+                            </div>
+                            <button type="submit" class="w-full py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs sm:text-sm cursor-pointer">
+                                <i class="fa-solid fa-plus-circle mr-1.5"></i> Simpan Pengeluaran
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs overflow-x-auto">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-4">Riwayat Pengeluaran Operasional</h3>
+                        <table class="w-full text-left text-xs">
+                            <thead class="border-b border-slate-200 text-slate-500 uppercase">
+                                <tr>
+                                    <th class="py-2.5 px-2">Tanggal</th>
+                                    <th class="py-2.5 px-2">Kategori</th>
+                                    <th class="py-2.5 px-2">Keterangan</th>
+                                    <th class="py-2.5 px-2">Nominal</th>
+                                    <th class="py-2.5 px-2 text-right">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expense-table-body" class="divide-y divide-slate-100"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANEL 5: KELOLA GALERI PUBLIK (ADMIN 1 & ADMIN 2) -->
+            <section id="panel-galeri" class="admin-panel hidden space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs h-fit">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-4">Upload Foto / Video Aktivitas</h3>
+                        <form id="gallery-upload-form" class="space-y-3.5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Judul Dokumentasi</label>
+                                <input type="text" id="gal-title" required placeholder="Contoh: Panen Pagi Kandang A" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Jenis Media</label>
+                                    <select id="gal-type" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                                        <option value="photo">Foto</option>
+                                        <option value="video">Video</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Kategori</label>
+                                    <select id="gal-category" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                                        <option value="Panen Telur">Panen Telur</option>
+                                        <option value="Pakan & Perawatan">Pakan &amp; Perawatan</option>
+                                        <option value="Distribusi">Distribusi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Pilih File dari Perangkat</label>
+                                <input type="file" accept="image/*,video/*" onchange="handleGalleryFileSelect(event)" class="w-full text-xs text-slate-600 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-100 file:text-amber-800 hover:file:bg-amber-200">
+                                <p id="gal-file-status" class="hidden text-[11px] font-bold text-emerald-700 mt-1"></p>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Atau Masukkan URL Foto / Video</label>
+                                <input type="url" id="gal-url-input" placeholder="https://..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Keterangan Aktivitas</label>
+                                <textarea id="gal-desc" rows="2" placeholder="Deskripsi singkat aktivitas..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs sm:text-sm cursor-pointer">
+                                <i class="fa-solid fa-cloud-arrow-up mr-1.5"></i> Publikasikan ke Galeri
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs space-y-4">
+                        <div class="flex items-center justify-between gap-2">
+                            <h3 class="text-sm font-extrabold text-slate-900">Media Galeri Publik</h3>
+                            <select id="admin-gallery-filter" onchange="renderAdminGallery()" class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700">
+                                <option value="all">Semua Media</option>
+                                <option value="photo">Foto Saja</option>
+                                <option value="video">Video Saja</option>
+                            </select>
+                        </div>
+                        <div id="admin-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PANEL 6: KONTAK, MEDSOS & UBAH PIN (ADMIN 2) -->
+            <section id="panel-kontak" class="admin-panel hidden space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-4">Pengaturan Kontak WhatsApp &amp; Media Sosial</h3>
+                        <form id="contact-social-form" class="space-y-3.5">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Nama Kontak WA 1</label>
+                                    <input type="text" id="cfg-wa1-name" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">No. WhatsApp 1</label>
+                                    <input type="text" id="cfg-wa1-phone" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Nama Kontak WA 2</label>
+                                    <input type="text" id="cfg-wa2-name" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">No. WhatsApp 2</label>
+                                    <input type="text" id="cfg-wa2-phone" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Instagram (Username atau URL)</label>
+                                <input type="text" id="cfg-soc-instagram" placeholder="@telurskietenang" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Facebook (Nama Halaman atau URL)</label>
+                                <input type="text" id="cfg-soc-facebook" placeholder="Telur Skie Tenang Jayapura" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">TikTok (Username atau URL)</label>
+                                <input type="text" id="cfg-soc-tiktok" placeholder="@telurskietenang" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                            </div>
+                            <button type="submit" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm cursor-pointer">
+                                Simpan Kontak &amp; Medsos
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs h-fit">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-1">Ubah PIN Akses Admin</h3>
+                        <p class="text-xs text-slate-500 mb-4">Kosongkan kolom jika tidak ingin mengubah PIN tersebut (4–8 digit angka).</p>
+                        <form id="change-pin-form" class="space-y-3.5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">PIN Baru Admin 1 (Operasional)</label>
+                                <input type="password" id="new-pin-admin1-input" inputmode="numeric" placeholder="Default: 1111" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">PIN Baru Admin 2 (Super Admin)</label>
+                                <input type="password" id="new-pin-admin2-input" inputmode="numeric" placeholder="Default: 2222" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                            </div>
+                            <button type="submit" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs sm:text-sm cursor-pointer">
+                                Perbarui PIN Admin
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL PEMESANAN WHATSAPP (JUMLAH STOK, INFO PEMBELI & DETAIL PESANAN) -->
+    <!-- ===================================================================== -->
+    <div id="wa-order-modal" class="fixed inset-0 z-50 hidden bg-slate-950/65 backdrop-blur-xs items-center justify-center p-4 no-print" onclick="if(event.target === this) closeWaOrderModal()">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-5 max-h-[92vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3.5">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h3 id="wa-modal-title" class="text-base font-extrabold text-slate-900">Pesan via WhatsApp</h3>
+                        <p id="wa-modal-subtitle" class="text-xs text-slate-500">Cek stok telur, isi info pembeli &amp; jumlah pesanan</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeWaOrderModal()" class="p-2 rounded-xl hover:bg-slate-100 text-slate-500 cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- 1. Jumlah Stok Telur Tersedia Saat Ini (Rak & Butir, Tanpa Harga) -->
+            <div class="space-y-2.5">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500">1. Jumlah Stok Telur Tersedia</span>
+                    <span id="wa-total-stock-badge" class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-extrabold">Total: 0 Rak (0 Butir)</span>
+                </div>
+                <div id="wa-stock-summary-grid" class="grid grid-cols-3 gap-2.5"></div>
+            </div>
+
+            <!-- 2. Informasi Pembeli -->
+            <div class="space-y-3 pt-1 border-t border-slate-100">
+                <span class="block text-xs font-extrabold uppercase tracking-wider text-slate-500">2. Informasi Pembeli</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Nama Pembeli <span class="text-rose-500">*</span></label>
+                        <input type="text" id="wa-order-customer" placeholder="Contoh: Ibu Maria" oninput="updateWaMessagePreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">No. HP / Alamat Pengantaran</label>
+                        <input type="text" id="wa-order-address" placeholder="Contoh: Entrop / 0812xxxx" oninput="updateWaMessagePreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Detail Pesanan Telur (Ukuran & Berapa Banyak) -->
+            <div class="space-y-3 pt-1 border-t border-slate-100">
+                <span class="block text-xs font-extrabold uppercase tracking-wider text-slate-500">3. Mau Beli Ukuran Apa &amp; Berapa Banyak</span>
+
+                <!-- Pilihan Ukuran Cepat -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1.5">Pilih Ukuran Telur</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" id="wa-size-pill-Kecil" onclick="selectWaOrderSize('Kecil')" class="wa-size-pill py-2.5 px-3 rounded-xl border text-xs font-extrabold transition cursor-pointer">
+                            Kecil
+                        </button>
+                        <button type="button" id="wa-size-pill-Sedang" onclick="selectWaOrderSize('Sedang')" class="wa-size-pill py-2.5 px-3 rounded-xl border text-xs font-extrabold transition cursor-pointer">
+                            Sedang
+                        </button>
+                        <button type="button" id="wa-size-pill-Besar" onclick="selectWaOrderSize('Besar')" class="wa-size-pill py-2.5 px-3 rounded-xl border text-xs font-extrabold transition cursor-pointer">
+                            Besar
+                        </button>
+                    </div>
+                    <select id="wa-order-size" onchange="updateWaMessagePreview()" class="sr-only" aria-label="Ukuran Telur">
+                        <option value="Kecil">Kecil</option>
+                        <option value="Sedang" selected>Sedang</option>
+                        <option value="Besar">Besar</option>
+                    </select>
+                </div>
+
+                <!-- Kontrol Jumlah Pesanan (+/- Rak & Konversi Butir) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Jumlah Pesanan (Rak)</label>
+                        <div class="flex items-center rounded-xl border border-slate-200 overflow-hidden bg-white">
+                            <button type="button" onclick="adjustWaOrderTrays(-1)" class="w-11 h-10 bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-base flex items-center justify-center transition cursor-pointer" aria-label="Kurangi 1 Rak">
+                                &minus;
+                            </button>
+                            <input type="number" id="wa-order-trays" min="1" step="1" value="1" oninput="updateWaMessagePreview()" class="w-full h-10 text-center text-sm font-extrabold text-slate-900 outline-none">
+                            <button type="button" onclick="adjustWaOrderTrays(1)" class="w-11 h-10 bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-base flex items-center justify-center transition cursor-pointer" aria-label="Tambah 1 Rak">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Catatan Tambahan</label>
+                        <input type="text" id="wa-order-notes" placeholder="Contoh: Ambil sore / Antar" oninput="updateWaMessagePreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                </div>
+
+                <!-- Ringkasan Pesanan (Ukuran & Jumlah dalam Rak & Butir) -->
+                <div class="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-2">
+                    <div>
+                        <span class="block text-[11px] font-bold uppercase tracking-wider text-emerald-700">Ringkasan Pesanan</span>
+                        <span id="wa-order-summary-text" class="text-xs sm:text-sm font-extrabold text-slate-900">Ukuran Sedang • 1 Rak (30 Butir)</span>
+                    </div>
+                    <span id="wa-order-stock-note" class="text-xs font-bold text-emerald-700 text-right">Stok: 0 Rak</span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Pratinjau Pesan WhatsApp yang Akan Terkirim</label>
+                    <textarea id="wa-message-preview" rows="8" readonly class="w-full px-3.5 py-2.5 rounded-2xl border border-slate-200 bg-slate-50 text-xs text-slate-700 leading-relaxed outline-none"></textarea>
+                </div>
+            </div>
+
+            <div class="pt-1 flex items-center justify-end gap-2.5">
+                <button type="button" onclick="closeWaOrderModal()" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs cursor-pointer">
+                    Batal
+                </button>
+                <a id="wa-launch-link" href="#" target="_blank" rel="noopener noreferrer" onclick="return handleWaLaunch(event)" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-md shadow-emerald-600/20 transition">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Kirim Pesan ke WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL LOGIN PIN ADMIN                                                 -->
+    <!-- ===================================================================== -->
+    <div id="pin-modal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-xs items-center justify-center p-4 no-print" onclick="if(event.target === this) closePinModal()">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 space-y-5">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-base font-extrabold text-slate-900">Login Admin</h2>
+                        <p class="text-[11px] text-slate-500">Masukkan PIN Admin 1 atau Admin 2</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closePinModal()" class="p-2 rounded-xl hover:bg-slate-100 text-slate-500 cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="pin-login-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1.5">PIN Admin</label>
+                    <input type="password" id="pin-input" inputmode="numeric" required placeholder="••••" class="w-full px-4 py-3 rounded-2xl border border-slate-200 text-center text-lg font-extrabold tracking-[0.4em] focus:ring-2 focus:ring-amber-500 outline-none">
+                    <p id="pin-error-msg" class="hidden text-xs font-bold text-rose-600 mt-1.5">PIN salah. Silakan coba lagi.</p>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-sm shadow-xs transition cursor-pointer">
+                    Masuk
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL LIGHTBOX FOTO & VIDEO                                           -->
+    <!-- ===================================================================== -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm items-center justify-center p-4 no-print" onclick="if(event.target === this) closeLightbox()">
+        <div class="bg-slate-900 text-white rounded-3xl max-w-4xl w-full overflow-hidden border border-white/15 shadow-2xl">
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-white/10">
+                <div class="min-w-0">
+                    <span id="lb-category" class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Kategori</span>
+                    <h3 id="lb-title" class="text-sm sm:text-base font-extrabold truncate">Judul Media</h3>
+                </div>
+                <button type="button" onclick="closeLightbox()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="lb-media-container" class="bg-black flex items-center justify-center max-h-[70vh] overflow-hidden"></div>
+            <div class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <p id="lb-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+                <span id="lb-date" class="text-xs font-semibold text-slate-400 shrink-0"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL STRUK TRANSAKSI KASIR                                           -->
+    <!-- ===================================================================== -->
+    <div id="receipt-modal" class="fixed inset-0 z-50 hidden bg-slate-950/65 backdrop-blur-xs items-center justify-center p-4" onclick="if(event.target === this) closeReceiptModal()">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+            <div id="receipt-print-area" class="space-y-3 text-slate-800">
+                <div class="text-center border-b border-dashed border-slate-300 pb-3">
+                    <h3 class="font-extrabold text-base text-slate-900">Telur Skie Tenang</h3>
+                    <p class="text-xs text-slate-500">Peternakan &amp; Distribusi Telur Ayam Ras • Jayapura</p>
+                    <p id="rec-id" class="text-[11px] font-mono text-slate-400 mt-1">#TRX-000</p>
+                </div>
+                <div class="space-y-1.5 text-xs">
+                    <div class="flex justify-between"><span class="text-slate-500">Tanggal:</span><span id="rec-date" class="font-bold">-</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Pembeli:</span><span id="rec-customer" class="font-bold">-</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Produk:</span><span id="rec-product" class="font-bold">-</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Harga Satuan:</span><span id="rec-unit-price" class="font-bold">-</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Status Bayar:</span><span id="rec-status" class="font-extrabold">-</span></div>
+                </div>
+                <div class="border-t border-dashed border-slate-300 pt-3 flex justify-between items-center">
+                    <span class="text-xs font-extrabold uppercase text-slate-600">Total Bayar</span>
+                    <span id="rec-total" class="text-lg font-extrabold text-slate-900">Rp 0</span>
+                </div>
+                <p class="text-center text-[11px] text-slate-400 pt-2">Terima kasih — Telur Skie Tenang</p>
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 no-print">
+                <button type="button" onclick="closeReceiptModal()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 cursor-pointer">Tutup</button>
+                <button type="button" onclick="window.print()" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-xs font-extrabold text-slate-950 cursor-pointer">
+                    <i class="fa-solid fa-print mr-1"></i> Cetak Struk
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const EGGS_PER_TRAY = 30;
+        const STORAGE_KEY = 'telur_skie_tenang_app_v1';
+        const PIN_ADMIN1_KEY = 'telur_skie_tenang_pin_admin1';
+        const PIN_ADMIN2_KEY = 'telur_skie_tenang_pin_admin2';
+        const DEFAULT_PIN_ADMIN1 = '1111';
+        const DEFAULT_PIN_ADMIN2 = '2222';
+
+        const DEFAULT_PRICES = {
+            Kecil: 50000,
+            Sedang: 60000,
+            Besar: 70000
+        };
+
+        let activeAdminRole = null;
+        let currentGalleryFilter = 'all';
+        let currentWaContactKey = 'wa1';
+        let uploadedMediaDataUrl = '';
+        let uploadedMediaType = 'photo';
+        let prodSalesChartInstance = null;
+        let stockCompChartInstance = null;
+
+        let appData = {
+            harvests: [],
+            sales: [],
+            expenses: [],
+            gallery: [],
+            contacts: {
+                wa1Name: 'Esther',
+                wa1Phone: '082399639927',
+                wa2Name: 'Rut',
+                wa2Phone: '081326562470',
+                instagram: '@telurskietenang',
+                facebook: 'Telur Skie Tenang Jayapura',
+                tiktok: '@telurskietenang'
+            }
+        };
+
+        function formatRupiah(num) {
+            return 'Rp ' + (Number(num) || 0).toLocaleString('id-ID');
+        }
+
+        function todayISO(offsetDays = 0) {
+            const d = new Date();
+            d.setDate(d.getDate() + offsetDays);
+            return d.toISOString().split('T')[0];
+        }
+
+        function formatDateIndo(isoStr) {
+            if (!isoStr) return '-';
+            const parts = isoStr.split('-');
+            if (parts.length !== 3) return isoStr;
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            return `${parts[2]} ${months[parseInt(parts[1], 10) - 1] || parts[1]} ${parts[0]}`;
+        }
+
+        function normalizePhoneWA(rawPhone) {
+            let digits = String(rawPhone || '').replace(/\D/g, '');
+            if (digits.startsWith('0')) {
+                digits = '62' + digits.slice(1);
+            } else if (!digits.startsWith('62') && digits.length > 0) {
+                digits = '62' + digits;
+            }
+            return digits;
+        }
+
+        function buildSocialUrl(platform, value) {
+            const v = (value || '').trim();
+            if (!v) return '';
+            if (/^https?:\/\//i.test(v)) return v;
+            const handle = v.replace(/^@/, '').replace(/\s+/g, '');
+            if (platform === 'instagram') return `https://www.instagram.com/${handle}/`;
+            if (platform === 'facebook') return `https://www.facebook.com/${handle}`;
+            if (platform === 'tiktok') return `https://www.tiktok.com/@${handle}`;
+            return '';
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const el = document.createElement('div');
+            const colors = {
+                success: 'bg-slate-900 text-white border-emerald-500/40',
+                warning: 'bg-amber-950 text-amber-100 border-amber-500/40',
+                error: 'bg-rose-950 text-rose-100 border-rose-500/40'
+            };
+            const icons = {
+                success: 'fa-circle-check text-emerald-400',
+                warning: 'fa-triangle-exclamation text-amber-400',
+                error: 'fa-circle-xmark text-rose-400'
+            };
+            el.className = `pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-2xl border shadow-xl text-xs font-bold transition-all ${colors[type] || colors.success}`;
+            el.innerHTML = `<i class="fa-solid ${icons[type] || icons.success} text-sm"></i><span>${message}</span>`;
+            container.appendChild(el);
+            setTimeout(() => {
+                el.style.opacity = '0';
+                setTimeout(() => el.remove(), 250);
+            }, 3400);
+        }
+
+        function createDemoDataset() {
+            return {
+                harvests: [
+                    { id: 'H-101', date: todayISO(-3), size: 'Kecil', eggs: 12 * EGGS_PER_TRAY, note: 'Panen Pagi Kandang A' },
+                    { id: 'H-102', date: todayISO(-3), size: 'Sedang', eggs: 24 * EGGS_PER_TRAY, note: 'Panen Pagi Kandang B' },
+                    { id: 'H-103', date: todayISO(-2), size: 'Besar', eggs: 16 * EGGS_PER_TRAY, note: 'Panen Sore Kandang Utama' },
+                    { id: 'H-104', date: todayISO(-1), size: 'Sedang', eggs: 20 * EGGS_PER_TRAY, note: 'Panen Pagi Kandang B' },
+                    { id: 'H-105', date: todayISO(0), size: 'Kecil', eggs: 9 * EGGS_PER_TRAY, note: 'Panen Hari Ini' },
+                    { id: 'H-106', date: todayISO(0), size: 'Besar', eggs: 12 * EGGS_PER_TRAY, note: 'Sortir Pilihan Besar' }
+                ],
+                sales: [
+                    { id: 'TRX-201', date: todayISO(-2), customer: 'Toko Sembako Abepura', size: 'Sedang', trays: 8, pricePerTray: 60000, total: 480000, status: 'Lunas' },
+                    { id: 'TRX-202', date: todayISO(-1), customer: 'Warung Makan Sentani', size: 'Besar', trays: 6, pricePerTray: 70000, total: 420000, status: 'Lunas' },
+                    { id: 'TRX-203', date: todayISO(-1), customer: 'Kios Mama Maria Entrop', size: 'Kecil', trays: 4, pricePerTray: 50000, total: 200000, status: 'Kasbon' },
+                    { id: 'TRX-204', date: todayISO(0), customer: 'Bakery Jayapura', size: 'Sedang', trays: 6, pricePerTray: 60000, total: 360000, status: 'Lunas' }
+                ],
+                expenses: [
+                    { id: 'EXP-301', date: todayISO(-3), category: 'Pakan Ayam', amount: 820000, note: 'Pakan layer 3 karung' },
+                    { id: 'EXP-302', date: todayISO(-2), category: 'Obat & Vitamin', amount: 135000, note: 'Vitamin & mineral kandang' },
+                    { id: 'EXP-303', date: todayISO(-1), category: 'Tray / Rak Telur', amount: 175000, note: 'Rak karton telur baru' },
+                    { id: 'EXP-304', date: todayISO(0), category: 'Operasional & Transport', amount: 115000, note: 'BBM pengantaran lokal' }
+                ],
+                gallery: [
+                    {
+                        id: 'GAL-01',
+                        type: 'photo',
+                        category: 'Panen Telur',
+                        title: 'Panen Telur Segar Pagi Hari — Telur Skie Tenang',
+                        url: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=1000&q=80',
+                        desc: 'Pengumpulan telur segar setiap pagi sebelum dipilah ke ukuran Kecil, Sedang, dan Besar.',
+                        date: todayISO(-2)
+                    },
+                    {
+                        id: 'GAL-02',
+                        type: 'photo',
+                        category: 'Pakan & Perawatan',
+                        title: 'Perawatan Kandang & Pemberian Pakan Terukur',
+                        url: 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1000&q=80',
+                        desc: 'Kebersihan kandang dan nutrisi pakan dijaga rutin setiap hari.',
+                        date: todayISO(-1)
+                    },
+                    {
+                        id: 'GAL-03',
+                        type: 'video',
+                        category: 'Distribusi',
+                        title: 'Penataan Rak Telur Siap Kirim Pelanggan',
+                        url: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+                        desc: 'Dokumentasi video persiapan rak telur untuk pelanggan di Jayapura.',
+                        date: todayISO(0)
+                    }
+                ]
+            };
+        }
+
+        function getAdmin1Pin() {
+            return localStorage.getItem(PIN_ADMIN1_KEY) || DEFAULT_PIN_ADMIN1;
+        }
+
+        function getAdmin2Pin() {
+            return localStorage.getItem(PIN_ADMIN2_KEY) || DEFAULT_PIN_ADMIN2;
+        }
+
+        function saveToStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+            } catch (err) {
+                console.error('Gagal menyimpan data:', err);
+                showToast('Penyimpanan browser penuh. Hapus media lama jika gagal menyimpan.', 'warning');
+            }
+        }
+
+        function loadFromStorage() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    const demo = createDemoDataset();
+                    appData.harvests = Array.isArray(parsed.harvests) ? parsed.harvests : demo.harvests;
+                    appData.sales = Array.isArray(parsed.sales) ? parsed.sales : demo.sales;
+                    appData.expenses = Array.isArray(parsed.expenses) ? parsed.expenses : demo.expenses;
+                    appData.gallery = Array.isArray(parsed.gallery) && parsed.gallery.length > 0 ? parsed.gallery : demo.gallery;
+                    appData.contacts = {
+                        wa1Name: parsed.contacts?.wa1Name || 'Esther',
+                        wa1Phone: parsed.contacts?.wa1Phone || '082399639927',
+                        wa2Name: parsed.contacts?.wa2Name || 'Rut',
+                        wa2Phone: parsed.contacts?.wa2Phone || '081326562470',
+                        instagram: parsed.contacts?.instagram || '@telurskietenang',
+                        facebook: parsed.contacts?.facebook || 'Telur Skie Tenang Jayapura',
+                        tiktok: parsed.contacts?.tiktok || '@telurskietenang'
+                    };
+                } else {
+                    const demo = createDemoDataset();
+                    appData.harvests = demo.harvests;
+                    appData.sales = demo.sales;
+                    appData.expenses = demo.expenses;
+                    appData.gallery = demo.gallery;
+                    saveToStorage();
+                }
+            } catch (err) {
+                console.error('Gagal memuat data:', err);
+                const demo = createDemoDataset();
+                appData.harvests = demo.harvests;
+                appData.sales = demo.sales;
+                appData.expenses = demo.expenses;
+                appData.gallery = demo.gallery;
+            }
+        }
+
+        function loadDemoData() {
+            if (activeAdminRole !== 'admin2') return;
+            const demo = createDemoDataset();
+            appData.harvests = demo.harvests;
+            appData.sales = demo.sales;
+            appData.expenses = demo.expenses;
+            appData.gallery = demo.gallery;
+            saveToStorage();
+            refreshAdminUI();
+            renderPublicGallery();
+            showToast('Data demo berhasil dimuat ulang!');
+        }
+
+        function calculateStockBySize() {
+            const sizes = ['Kecil', 'Sedang', 'Besar'];
+            const bySize = {
+                Kecil: { eggs: 0, trays: 0 },
+                Sedang: { eggs: 0, trays: 0 },
+                Besar: { eggs: 0, trays: 0 }
+            };
+
+            appData.harvests.forEach((h) => {
+                if (bySize[h.size]) {
+                    bySize[h.size].eggs += Number(h.eggs) || 0;
+                }
+            });
+
+            appData.sales.forEach((s) => {
+                if (bySize[s.size]) {
+                    bySize[s.size].eggs -= (Number(s.trays) || 0) * EGGS_PER_TRAY;
+                }
+            });
+
+            let totalEggs = 0;
+            let totalTrays = 0;
+            sizes.forEach((sz) => {
+                bySize[sz].eggs = Math.max(0, bySize[sz].eggs);
+                bySize[sz].trays = Math.floor(bySize[sz].eggs / EGGS_PER_TRAY);
+                totalEggs += bySize[sz].eggs;
+                totalTrays += bySize[sz].trays;
+            });
+
+            return { bySize, totalEggs, totalTrays };
+        }
+
+        // =====================================================================
+        // RENDER HALAMAN PUBLIK (GALERI & KONTAK/MEDSOS)
+        // =====================================================================
+        function setPublicGalleryFilter(filter) {
+            currentGalleryFilter = filter;
+            ['all', 'photo', 'video'].forEach((key) => {
+                const btn = document.getElementById(`pub-filter-${key}`);
+                if (!btn) return;
+                btn.className = key === filter
+                    ? 'pub-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-900 shadow-2xs transition cursor-pointer'
+                    : 'pub-filter-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer';
+            });
+            renderPublicGallery();
+        }
+
+        function renderPublicGallery() {
+            const grid = document.getElementById('public-gallery-grid');
+            if (!grid) return;
+            const items = appData.gallery.filter((g) => currentGalleryFilter === 'all' || g.type === currentGalleryFilter);
+
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-sm text-slate-400 font-semibold bg-white rounded-3xl border border-slate-200/80">Belum ada dokumentasi pada kategori ini.</div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map((item) => {
+                const mediaPreview = item.type === 'video'
+                    ? `<div class="relative h-52 bg-slate-900 overflow-hidden">
+                           <video src="${item.url}" muted playsinline class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-300"></video>
+                           <span class="absolute inset-0 flex items-center justify-center">
+                               <span class="w-12 h-12 rounded-full bg-amber-400/95 text-slate-950 flex items-center justify-center shadow-lg">
+                                   <i class="fa-solid fa-play ml-0.5"></i>
+                               </span>
+                           </span>
+                       </div>`
+                    : `<div class="relative h-52 bg-slate-100 overflow-hidden">
+                           <img src="${item.url}" alt="${item.title}" onerror="this.src='https://placehold.co/800x500/f1f5f9/475569?text=Telur+Skie+Tenang'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                       </div>`;
+
+                return `
+                    <article onclick="openLightbox('${item.id}')" class="group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xs hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between">
+                        <div>
+                            ${mediaPreview}
+                            <div class="p-5">
+                                <div class="flex items-center justify-between gap-2 mb-1.5">
+                                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-amber-100 text-amber-800">${item.category}</span>
+                                    <span class="text-[11px] font-semibold text-slate-400">${formatDateIndo(item.date)}</span>
+                                </div>
+                                <h3 class="text-sm sm:text-base font-extrabold text-slate-900 group-hover:text-amber-600 transition line-clamp-1">${item.title}</h3>
+                                <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">${item.desc || ''}</p>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        function openLightbox(id) {
+            const item = appData.gallery.find((g) => g.id === id);
+            if (!item) return;
+            document.getElementById('lb-category').textContent = `${item.type === 'video' ? 'Video' : 'Foto'} • ${item.category}`;
+            document.getElementById('lb-title').textContent = item.title;
+            document.getElementById('lb-desc').textContent = item.desc || '';
+            document.getElementById('lb-date').textContent = formatDateIndo(item.date);
+
+            const container = document.getElementById('lb-media-container');
+            container.innerHTML = item.type === 'video'
+                ? `<video src="${item.url}" controls autoplay playsinline class="max-h-[70vh] w-auto"></video>`
+                : `<img src="${item.url}" alt="${item.title}" class="max-h-[70vh] w-auto object-contain">`;
+
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            document.getElementById('lb-media-container').innerHTML = '';
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function renderContactsAndSocialUI() {
+            const c = appData.contacts;
+            const wa1Name = c.wa1Name || 'Esther';
+            const wa1Phone = c.wa1Phone || '082399639927';
+            const wa2Name = c.wa2Name || 'Rut';
+            const wa2Phone = c.wa2Phone || '081326562470';
+
+            const hero1 = document.getElementById('hero-wa-1-label');
+            const hero2 = document.getElementById('hero-wa-2-label');
+            if (hero1) hero1.textContent = `Pesan via WA: ${wa1Name}`;
+            if (hero2) hero2.textContent = `Pesan via WA: ${wa2Name}`;
+
+            const card1Avatar = document.getElementById('card-wa-1-avatar');
+            const card1Name = document.getElementById('card-wa-1-name');
+            const card1Phone = document.querySelector('#card-wa-1-phone span');
+            if (card1Avatar) card1Avatar.textContent = wa1Name.charAt(0).toUpperCase();
+            if (card1Name) card1Name.textContent = wa1Name;
+            if (card1Phone) card1Phone.textContent = wa1Phone;
+
+            const card2Avatar = document.getElementById('card-wa-2-avatar');
+            const card2Name = document.getElementById('card-wa-2-name');
+            const card2Phone = document.querySelector('#card-wa-2-phone span');
+            if (card2Avatar) card2Avatar.textContent = wa2Name.charAt(0).toUpperCase();
+            if (card2Name) card2Name.textContent = wa2Name;
+            if (card2Phone) card2Phone.textContent = wa2Phone;
+
+            ['instagram', 'facebook', 'tiktok'].forEach((platform) => {
+                const labelEl = document.getElementById(`public-soc-${platform}-label`);
+                const anchorEl = document.getElementById(`public-soc-${platform}`);
+                const val = (c[platform] || '').trim();
+                const url = buildSocialUrl(platform, val);
+                if (labelEl) labelEl.textContent = val || 'Belum diatur';
+                if (anchorEl) anchorEl.href = url || '#kontak-pemesanan';
+            });
+
+            const cfgWa1Name = document.getElementById('cfg-wa1-name');
+            if (cfgWa1Name) {
+                cfgWa1Name.value = wa1Name;
+                document.getElementById('cfg-wa1-phone').value = wa1Phone;
+                document.getElementById('cfg-wa2-name').value = wa2Name;
+                document.getElementById('cfg-wa2-phone').value = wa2Phone;
+                document.getElementById('cfg-soc-instagram').value = c.instagram || '';
+                document.getElementById('cfg-soc-facebook').value = c.facebook || '';
+                document.getElementById('cfg-soc-tiktok').value = c.tiktok || '';
+            }
+        }
+
+        function handleSocialClick(event, platform) {
+            const url = buildSocialUrl(platform, appData.contacts[platform]);
+            if (!url) {
+                event.preventDefault();
+                showToast(`Tautan ${platform} belum diatur oleh Admin.`, 'warning');
+                return false;
+            }
+            window.open(url, '_blank', 'noopener,noreferrer');
+            event.preventDefault();
+            return false;
+        }
+
+        // =====================================================================
+        // MODAL PEMESANAN WHATSAPP (STOK LENGKAP, INFO PEMBELI & PESANAN)
+        // =====================================================================
+        function openWaOrderModal(contactKey = 'wa1') {
+            currentWaContactKey = contactKey === 'wa2' ? 'wa2' : 'wa1';
+            const isWa2 = currentWaContactKey === 'wa2';
+            const name = isWa2 ? (appData.contacts.wa2Name || 'Rut') : (appData.contacts.wa1Name || 'Esther');
+            const phone = isWa2 ? (appData.contacts.wa2Phone || '081326562470') : (appData.contacts.wa1Phone || '082399639927');
+
+            document.getElementById('wa-modal-title').textContent = `Pesan via WA ke ${name}`;
+            document.getElementById('wa-modal-subtitle').textContent = `Kontak: ${phone} • 1 Rak = ${EGGS_PER_TRAY} Butir`;
+            document.getElementById('wa-order-trays').value = '1';
+            document.getElementById('wa-order-customer').value = '';
+            document.getElementById('wa-order-address').value = '';
+            document.getElementById('wa-order-notes').value = '';
+
+            renderWaStockSummaryCards();
+            updateWaMessagePreview();
+
+            const modal = document.getElementById('wa-order-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeWaOrderModal() {
+            const modal = document.getElementById('wa-order-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function renderWaStockSummaryCards() {
+            const grid = document.getElementById('wa-stock-summary-grid');
+            const totalBadge = document.getElementById('wa-total-stock-badge');
+            if (!grid) return;
+
+            const stockData = calculateStockBySize();
+            const stock = stockData.bySize;
+            const chosenSize = document.getElementById('wa-order-size').value;
+            const sizes = ['Kecil', 'Sedang', 'Besar'];
+
+            if (totalBadge) {
+                totalBadge.textContent = `Total: ${stockData.totalTrays} Rak (${stockData.totalEggs.toLocaleString('id-ID')} Butir)`;
+            }
+
+            grid.innerHTML = sizes.map((sz) => {
+                const trays = stock[sz].trays;
+                const eggs = stock[sz].eggs;
+                const selected = sz === chosenSize;
+                return `
+                    <button type="button" onclick="selectWaOrderSize('${sz}')" class="text-left p-3 rounded-2xl border transition cursor-pointer ${selected ? 'border-emerald-500 bg-emerald-50 ring-2 ring-emerald-500/20' : 'border-slate-200 bg-slate-50/70 hover:border-emerald-300'}">
+                        <div class="text-[11px] font-extrabold uppercase text-slate-600">${sz}</div>
+                        <div class="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">${trays} Rak</div>
+                        <div class="text-[11px] font-semibold text-slate-500">${eggs.toLocaleString('id-ID')} Butir</div>
+                        <div class="text-[10px] font-bold mt-0.5 ${trays > 0 ? 'text-emerald-700' : 'text-rose-600'}">${trays > 0 ? 'Tersedia' : 'Habis'}</div>
+                    </button>
+                `;
+            }).join('');
+
+            sizes.forEach((sz) => {
+                const pill = document.getElementById(`wa-size-pill-${sz}`);
+                if (!pill) return;
+                pill.className = sz === chosenSize
+                    ? 'wa-size-pill py-2.5 px-3 rounded-xl border-2 border-emerald-600 bg-emerald-600 text-white text-xs font-extrabold shadow-xs transition cursor-pointer'
+                    : 'wa-size-pill py-2.5 px-3 rounded-xl border border-slate-200 bg-white hover:border-emerald-400 text-slate-700 text-xs font-extrabold transition cursor-pointer';
+            });
+        }
+
+        function selectWaOrderSize(size) {
+            const sel = document.getElementById('wa-order-size');
+            if (sel) {
+                sel.value = size;
+                updateWaMessagePreview();
+            }
+        }
+
+        function adjustWaOrderTrays(delta) {
+            const input = document.getElementById('wa-order-trays');
+            if (!input) return;
+            const current = parseInt(input.value || '1', 10) || 1;
+            input.value = Math.max(1, current + delta);
+            updateWaMessagePreview();
+        }
+
+        function handleWaLaunch(event) {
+            const customer = document.getElementById('wa-order-customer').value.trim();
+            if (!customer) {
+                event.preventDefault();
+                showToast('Silakan isi Nama Pembeli terlebih dahulu.', 'warning');
+                document.getElementById('wa-order-customer').focus();
+                return false;
+            }
+            closeWaOrderModal();
+            return true;
+        }
+
+        function updateWaMessagePreview() {
+            const isWa2 = currentWaContactKey === 'wa2';
+            const adminName = isWa2 ? (appData.contacts.wa2Name || 'Rut') : (appData.contacts.wa1Name || 'Esther');
+            const phoneIntl = normalizePhoneWA(isWa2 ? (appData.contacts.wa2Phone || '081326562470') : (appData.contacts.wa1Phone || '082399639927'));
+
+            const chosenSize = document.getElementById('wa-order-size').value || 'Sedang';
+            const trays = Math.max(1, parseInt(document.getElementById('wa-order-trays').value || '1', 10));
+            const totalOrderEggs = trays * EGGS_PER_TRAY;
+            const customer = document.getElementById('wa-order-customer').value.trim();
+            const address = document.getElementById('wa-order-address').value.trim();
+            const notes = document.getElementById('wa-order-notes').value.trim();
+
+            const stockData = calculateStockBySize();
+            const stock = stockData.bySize;
+            renderWaStockSummaryCards();
+
+            document.getElementById('wa-order-summary-text').textContent = `Ukuran ${chosenSize} • ${trays} Rak (${totalOrderEggs.toLocaleString('id-ID')} Butir)`;
+            document.getElementById('wa-order-stock-note').textContent = `Stok ${chosenSize}: ${stock[chosenSize].trays} Rak (${stock[chosenSize].eggs.toLocaleString('id-ID')} Butir)`;
+
+            const stockLines = ['Kecil', 'Sedang', 'Besar']
+                .map((sz) => `- Ukuran ${sz}: ${stock[sz].trays} Rak (${stock[sz].eggs.toLocaleString('id-ID')} Butir)`)
+                .join('\n');
+
+            const message = [
+                `Halo ${adminName}, saya mau memesan telur dari *Telur Skie Tenang*.`,
+                ``,
+                `*Jumlah Stok Telur Tersedia Saat Ini:*`,
+                `- Total Semua Ukuran: ${stockData.totalTrays} Rak (${stockData.totalEggs.toLocaleString('id-ID')} Butir)`,
+                stockLines,
+                ``,
+                `*Informasi Pembeli:*`,
+                `- Nama Pembeli: ${customer || '(Belum diisi)'}`,
+                address ? `- Alamat / No. HP: ${address}` : null,
+                ``,
+                `*Pesanan Telur:*`,
+                `- Ukuran Telur: ${chosenSize}`,
+                `- Jumlah Pesanan: ${trays} Rak (${totalOrderEggs.toLocaleString('id-ID')} Butir)`,
+                notes ? `- Catatan: ${notes}` : null
+            ].filter((line) => line !== null).join('\n');
+
+            document.getElementById('wa-message-preview').value = message;
+            document.getElementById('wa-launch-link').href = `https://wa.me/${phoneIntl}?text=${encodeURIComponent(message)}`;
+        }
+
+        // =====================================================================
+        // AUTENTIKASI 2 LEVEL ADMIN (ADMIN 1 & ADMIN 2)
+        // =====================================================================
+        function getAllowedTabsForRole(role) {
+            if (role === 'admin1') {
+                return ['stok', 'kasir', 'galeri'];
+            }
+            if (role === 'admin2') {
+                return ['ringkasan', 'stok', 'kasir', 'pengeluaran', 'galeri', 'kontak'];
+            }
+            return [];
+        }
+
+        function applyRolePermissions() {
+            const allowed = getAllowedTabsForRole(activeAdminRole);
+            const allTabs = ['ringkasan', 'stok', 'kasir', 'pengeluaran', 'galeri', 'kontak'];
+
+            allTabs.forEach((tab) => {
+                const btn = document.getElementById(`admin-tab-${tab}`);
+                if (btn) btn.classList.toggle('hidden', !allowed.includes(tab));
+            });
+
+            const badge = document.getElementById('admin-role-badge');
+            const subtitle = document.getElementById('admin-header-subtitle');
+            if (activeAdminRole === 'admin1') {
+                badge.textContent = 'Admin 1 • Operasional';
+                badge.className = 'hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800';
+                subtitle.textContent = 'Akses: Stok & Panen, Kasir Penjualan, dan Kelola Galeri Publik';
+            } else if (activeAdminRole === 'admin2') {
+                badge.textContent = 'Admin 2 • Super Admin';
+                badge.className = 'hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800';
+                subtitle.textContent = 'Akses Penuh Semua Menu & Pengaturan';
+            }
+        }
+
+        function openPinModal() {
+            if (activeAdminRole) {
+                showAdminView();
+                return;
+            }
+            const modal = document.getElementById('pin-modal');
+            const input = document.getElementById('pin-input');
+            document.getElementById('pin-error-msg').classList.add('hidden');
+            input.value = '';
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => input.focus(), 60);
+        }
+
+        function closePinModal() {
+            const modal = document.getElementById('pin-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        document.getElementById('pin-login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const entered = document.getElementById('pin-input').value.trim();
+            const err = document.getElementById('pin-error-msg');
+
+            if (entered === getAdmin2Pin()) {
+                activeAdminRole = 'admin2';
+                err.classList.add('hidden');
+                closePinModal();
+                showAdminView();
+                showToast('Masuk sebagai Admin 2 (Akses Penuh).');
+            } else if (entered === getAdmin1Pin()) {
+                activeAdminRole = 'admin1';
+                err.classList.add('hidden');
+                closePinModal();
+                showAdminView();
+                showToast('Masuk sebagai Admin 1 (Stok & Panen, Kasir, Galeri).');
+            } else {
+                err.classList.remove('hidden');
+            }
+        });
+
+        function showAdminView() {
+            document.getElementById('public-view').classList.add('hidden');
+            document.getElementById('admin-view').classList.remove('hidden');
+            document.getElementById('admin-view').classList.add('flex');
+            applyRolePermissions();
+            const allowed = getAllowedTabsForRole(activeAdminRole);
+            switchAdminTab(allowed[0] || 'stok');
+            refreshAdminUI();
+        }
+
+        function exitAdminMode() {
+            document.getElementById('admin-view').classList.add('hidden');
+            document.getElementById('admin-view').classList.remove('flex');
+            document.getElementById('public-view').classList.remove('hidden');
+            renderPublicGallery();
+            renderContactsAndSocialUI();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function logoutAdmin() {
+            activeAdminRole = null;
+            exitAdminMode();
+            showToast('Keluar dari mode admin.');
+        }
+
+        function switchAdminTab(tabName) {
+            const allowed = getAllowedTabsForRole(activeAdminRole);
+            if (!allowed.includes(tabName)) {
+                tabName = allowed[0] || 'stok';
+            }
+
+            document.querySelectorAll('.admin-tab-btn').forEach((btn) => {
+                if (btn.classList.contains('hidden')) return;
+                const active = btn.id === `admin-tab-${tabName}`;
+                btn.className = active
+                    ? 'admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-amber-500 text-slate-950 transition cursor-pointer'
+                    : 'admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer';
+            });
+
+            document.querySelectorAll('.admin-panel').forEach((panel) => {
+                panel.classList.toggle('hidden', panel.id !== `panel-${tabName}`);
+            });
+
+            if (tabName === 'ringkasan' && activeAdminRole === 'admin2') {
+                renderCharts();
+            } else if (tabName === 'kasir') {
+                onSaleSizeChange();
+            }
+        }
+
+        // =====================================================================
+        // RENDER PANEL ADMIN
+        // =====================================================================
+        function refreshAdminUI() {
+            if (!activeAdminRole) return;
+            if (activeAdminRole === 'admin2') {
+                renderSummaryKPIs();
+                renderExpenseTable();
+                renderCharts();
+            }
+            renderStockSizeCards();
+            renderHarvestTable();
+            renderSalesTable();
+            renderAdminGallery();
+            renderContactsAndSocialUI();
+            onSaleSizeChange();
+        }
+
+        function renderSummaryKPIs() {
+            const stock = calculateStockBySize();
+            document.getElementById('kpi-total-trays').textContent = `${stock.totalTrays} Rak`;
+            document.getElementById('kpi-total-eggs').textContent = `${stock.totalEggs.toLocaleString('id-ID')} Butir (K:${stock.bySize.Kecil.trays} • S:${stock.bySize.Sedang.trays} • B:${stock.bySize.Besar.trays})`;
+
+            let paidIncome = 0;
+            let kasbonIncome = 0;
+            appData.sales.forEach((s) => {
+                if (s.status === 'Lunas') paidIncome += Number(s.total) || 0;
+                else kasbonIncome += Number(s.total) || 0;
+            });
+
+            const totalExpense = appData.expenses.reduce((acc, e) => acc + (Number(e.amount) || 0), 0);
+            const netProfit = paidIncome - totalExpense;
+
+            document.getElementById('kpi-income-paid').textContent = formatRupiah(paidIncome);
+            document.getElementById('kpi-income-kasbon').textContent = `Kasbon Belum Lunas: ${formatRupiah(kasbonIncome)}`;
+            document.getElementById('kpi-total-expense').textContent = formatRupiah(totalExpense);
+            document.getElementById('kpi-expense-count').textContent = `${appData.expenses.length} catatan pengeluaran`;
+
+            const profitEl = document.getElementById('kpi-net-profit');
+            profitEl.textContent = formatRupiah(netProfit);
+            profitEl.className = `text-2xl font-extrabold mt-2 ${netProfit >= 0 ? 'text-blue-700' : 'text-rose-700'}`;
+        }
+
+        function renderCharts() {
+            const ctx1 = document.getElementById('prodSalesChart');
+            const ctx2 = document.getElementById('stockCompChart');
+            if (!ctx1 || !ctx2) return;
+
+            const labels = [];
+            const prodSeries = [];
+            const salesSeries = [];
+
+            for (let i = 6; i >= 0; i--) {
+                const iso = todayISO(-i);
+                labels.push(formatDateIndo(iso).slice(0, 6));
+                const harvestedTrays = appData.harvests
+                    .filter((h) => h.date === iso)
+                    .reduce((sum, h) => sum + Math.round((Number(h.eggs) || 0) / EGGS_PER_TRAY), 0);
+                const soldTrays = appData.sales
+                    .filter((s) => s.date === iso)
+                    .reduce((sum, s) => sum + (Number(s.trays) || 0), 0);
+                prodSeries.push(harvestedTrays);
+                salesSeries.push(soldTrays);
+            }
+
+            if (prodSalesChartInstance) prodSalesChartInstance.destroy();
+            prodSalesChartInstance = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [
+                        { label: 'Produksi Panen (Rak)', data: prodSeries, backgroundColor: '#f59e0b', borderRadius: 8 },
+                        { label: 'Penjualan (Rak)', data: salesSeries, backgroundColor: '#10b981', borderRadius: 8 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } },
+                    scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+                }
+            });
+
+            const stock = calculateStockBySize().bySize;
+            if (stockCompChartInstance) stockCompChartInstance.destroy();
+            stockCompChartInstance = new Chart(ctx2, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Kecil (Rak)', 'Sedang (Rak)', 'Besar (Rak)'],
+                    datasets: [{
+                        data: [stock.Kecil.trays, stock.Sedang.trays, stock.Besar.trays],
+                        backgroundColor: ['#38bdf8', '#f59e0b', '#10b981'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        }
+
+        // =====================================================================
+        // KASIR PENJUALAN
+        // =====================================================================
+        function onSaleSizeChange() {
+            const size = document.getElementById('sale-size').value;
+            document.getElementById('sale-price').value = DEFAULT_PRICES[size] || 60000;
+            const stock = calculateStockBySize().bySize[size];
+            document.getElementById('sale-available-stock').textContent = `${stock.trays} Rak (${stock.eggs} Butir)`;
+            updateSaleTotalPreview();
+        }
+
+        function updateSaleTotalPreview() {
+            const trays = Math.max(0, parseInt(document.getElementById('sale-trays').value || '0', 10));
+            const price = Math.max(0, parseInt(document.getElementById('sale-price').value || '0', 10));
+            document.getElementById('sale-total-display').textContent = formatRupiah(trays * price);
+        }
+
+        document.getElementById('sale-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const date = document.getElementById('sale-date').value || todayISO();
+            const customer = document.getElementById('sale-customer').value.trim();
+            const size = document.getElementById('sale-size').value;
+            const trays = parseInt(document.getElementById('sale-trays').value || '0', 10);
+            const pricePerTray = parseInt(document.getElementById('sale-price').value || '0', 10);
+            const status = document.getElementById('sale-status').value;
+
+            const available = calculateStockBySize().bySize[size];
+            if (trays <= 0 || trays > available.trays) {
+                showToast(`Stok ukuran ${size} tidak cukup (Tersedia: ${available.trays} Rak).`, 'error');
+                return;
+            }
+
+            const newSale = {
+                id: 'TRX-' + Date.now().toString().slice(-5),
+                date,
+                customer,
+                size,
+                trays,
+                pricePerTray,
+                total: trays * pricePerTray,
+                status
+            };
+
+            appData.sales.unshift(newSale);
+            saveToStorage();
+            document.getElementById('sale-customer').value = '';
+            document.getElementById('sale-trays').value = '1';
+            refreshAdminUI();
+            showToast(`Transaksi ${newSale.id} tersimpan!`);
+        });
+
+        function renderSalesTable() {
+            const tbody = document.getElementById('sales-table-body');
+            if (!tbody) return;
+            const filter = document.getElementById('sales-filter-status')?.value || 'all';
+            const rows = appData.sales.filter((s) => filter === 'all' || s.status === filter);
+
+            if (rows.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-xs text-slate-400 font-semibold">Belum ada transaksi penjualan.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = rows.map((s) => {
+                const isPaid = s.status === 'Lunas';
+                const statusBadge = isPaid
+                    ? `<span class="inline-flex px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">Lunas</span>`
+                    : `<span class="inline-flex px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">Kasbon</span>`;
+
+                const settleBtn = !isPaid
+                    ? `<button type="button" onclick="markSalePaid('${s.id}')" class="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold cursor-pointer">Lunasi</button>`
+                    : '';
+
+                return `
+                    <tr class="hover:bg-slate-50/80">
+                        <td class="py-3 px-2">
+                            <div class="font-bold text-slate-900">${s.customer}</div>
+                            <div class="text-[11px] text-slate-400">${formatDateIndo(s.date)} • ${s.id}</div>
+                        </td>
+                        <td class="py-3 px-2 font-semibold text-slate-700">${s.size} • ${s.trays} Rak</td>
+                        <td class="py-3 px-2 font-extrabold text-slate-900">${formatRupiah(s.total)}</td>
+                        <td class="py-3 px-2">${statusBadge}</td>
+                        <td class="py-3 px-2 text-right space-x-1 whitespace-nowrap">
+                            ${settleBtn}
+                            <button type="button" onclick="openReceiptModal('${s.id}')" title="Struk" class="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer"><i class="fa-solid fa-receipt"></i></button>
+                            <button type="button" onclick="deleteSale('${s.id}')" title="Hapus" class="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function markSalePaid(id) {
+            const sale = appData.sales.find((s) => s.id === id);
+            if (!sale) return;
+            sale.status = 'Lunas';
+            saveToStorage();
+            refreshAdminUI();
+            showToast(`Transaksi ${id} ditandai Lunas.`);
+        }
+
+        function deleteSale(id) {
+            appData.sales = appData.sales.filter((s) => s.id !== id);
+            saveToStorage();
+            refreshAdminUI();
+            showToast(`Transaksi ${id} dihapus.`);
+        }
+
+        function openReceiptModal(id) {
+            const s = appData.sales.find((item) => item.id === id);
+            if (!s) return;
+            document.getElementById('rec-id').textContent = s.id;
+            document.getElementById('rec-date').textContent = formatDateIndo(s.date);
+            document.getElementById('rec-customer').textContent = s.customer;
+            document.getElementById('rec-product').textContent = `Telur ${s.size} (${s.trays} Rak / ${s.trays * EGGS_PER_TRAY} Butir)`;
+            document.getElementById('rec-unit-price').textContent = `${formatRupiah(s.pricePerTray)} / rak`;
+            document.getElementById('rec-status').textContent = s.status;
+            document.getElementById('rec-total').textContent = formatRupiah(s.total);
+
+            const modal = document.getElementById('receipt-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeReceiptModal() {
+            const modal = document.getElementById('receipt-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // =====================================================================
+        // STOK & PANEN
+        // =====================================================================
+        function renderStockSizeCards() {
+            const container = document.getElementById('stok-size-cards');
+            if (!container) return;
+            const stock = calculateStockBySize().bySize;
+            const meta = [
+                { size: 'Kecil', color: 'border-sky-200 bg-sky-50/60', badge: 'bg-sky-100 text-sky-800' },
+                { size: 'Sedang', color: 'border-amber-200 bg-amber-50/60', badge: 'bg-amber-100 text-amber-800' },
+                { size: 'Besar', color: 'border-emerald-200 bg-emerald-50/60', badge: 'bg-emerald-100 text-emerald-800' }
+            ];
+
+            container.innerHTML = meta.map((m) => {
+                const item = stock[m.size];
+                return `
+                    <div class="rounded-2xl p-5 border ${m.color} bg-white shadow-2xs flex items-center justify-between">
+                        <div>
+                            <span class="inline-flex px-2.5 py-0.5 rounded-full text-[11px] font-extrabold ${m.badge}">Ukuran ${m.size}</span>
+                            <div class="text-2xl font-extrabold text-slate-900 mt-2">${item.trays} Rak</div>
+                            <div class="text-xs font-semibold text-slate-500 mt-0.5">${item.eggs.toLocaleString('id-ID')} Butir</div>
+                        </div>
+                        <div class="w-11 h-11 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-egg"></i>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        document.getElementById('harvest-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const editId = document.getElementById('harvest-edit-id').value;
+            const date = document.getElementById('harvest-date').value || todayISO();
+            const size = document.getElementById('harvest-size').value;
+            const unit = document.getElementById('harvest-unit').value;
+            const qty = Math.max(1, parseInt(document.getElementById('harvest-qty').value || '1', 10));
+            const note = document.getElementById('harvest-note').value.trim() || 'Panen Harian';
+            const totalEggs = unit === 'rak' ? qty * EGGS_PER_TRAY : qty;
+
+            if (editId) {
+                const idx = appData.harvests.findIndex((h) => h.id === editId);
+                if (idx !== -1) {
+                    appData.harvests[idx] = { id: editId, date, size, eggs: totalEggs, note };
+                    showToast('Data panen diperbarui.');
+                }
+            } else {
+                appData.harvests.unshift({
+                    id: 'H-' + Date.now().toString().slice(-5),
+                    date,
+                    size,
+                    eggs: totalEggs,
+                    note
+                });
+                showToast(`Panen ${size} (+${totalEggs} butir) ditambahkan.`);
+            }
+
+            saveToStorage();
+            resetHarvestForm();
+            refreshAdminUI();
+        });
+
+        function editHarvest(id) {
+            const item = appData.harvests.find((h) => h.id === id);
+            if (!item) return;
+            document.getElementById('harvest-edit-id').value = item.id;
+            document.getElementById('harvest-date').value = item.date;
+            document.getElementById('harvest-size').value = item.size;
+            if (item.eggs % EGGS_PER_TRAY === 0) {
+                document.getElementById('harvest-unit').value = 'rak';
+                document.getElementById('harvest-qty').value = item.eggs / EGGS_PER_TRAY;
+            } else {
+                document.getElementById('harvest-unit').value = 'butir';
+                document.getElementById('harvest-qty').value = item.eggs;
+            }
+            document.getElementById('harvest-note').value = item.note;
+            document.getElementById('harvest-form-title').textContent = 'Edit Panen';
+            document.getElementById('harvest-submit-btn').innerHTML = '<i class="fa-solid fa-check mr-1.5"></i> Perbarui Panen';
+            document.getElementById('harvest-cancel-edit-btn').classList.remove('hidden');
+        }
+
+        function resetHarvestForm() {
+            document.getElementById('harvest-edit-id').value = '';
+            document.getElementById('harvest-date').value = todayISO();
+            document.getElementById('harvest-qty').value = '';
+            document.getElementById('harvest-note').value = '';
+            document.getElementById('harvest-form-title').textContent = 'Catat Panen Telur';
+            document.getElementById('harvest-submit-btn').innerHTML = '<i class="fa-solid fa-plus-circle mr-1.5"></i> Simpan Panen';
+            document.getElementById('harvest-cancel-edit-btn').classList.add('hidden');
+        }
+
+        function deleteHarvest(id) {
+            appData.harvests = appData.harvests.filter((h) => h.id !== id);
+            saveToStorage();
+            refreshAdminUI();
+            showToast('Catatan panen dihapus.');
+        }
+
+        function renderHarvestTable() {
+            const tbody = document.getElementById('harvest-table-body');
+            if (!tbody) return;
+            if (appData.harvests.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-xs text-slate-400 font-semibold">Belum ada catatan panen.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = appData.harvests.map((h) => {
+                const trays = Math.floor(h.eggs / EGGS_PER_TRAY);
+                const rem = h.eggs % EGGS_PER_TRAY;
+                const qtyLabel = rem === 0 ? `${trays} Rak (${h.eggs} Butir)` : `${trays} Rak + ${rem} Butir (${h.eggs} Butir)`;
+                return `
+                    <tr class="hover:bg-slate-50/80">
+                        <td class="py-3 px-2 font-semibold text-slate-700">${formatDateIndo(h.date)}</td>
+                        <td class="py-3 px-2 font-extrabold text-slate-900">${h.size}</td>
+                        <td class="py-3 px-2 font-bold text-amber-700">${qtyLabel}</td>
+                        <td class="py-3 px-2 text-xs text-slate-500">${h.note || '-'}</td>
+                        <td class="py-3 px-2 text-right space-x-1 whitespace-nowrap">
+                            <button type="button" onclick="editHarvest('${h.id}')" title="Edit" class="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer"><i class="fa-solid fa-pen"></i></button>
+                            <button type="button" onclick="deleteHarvest('${h.id}')" title="Hapus" class="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // =====================================================================
+        // PENGELUARAN & EKSPOR CSV (KHUSUS ADMIN 2)
+        // =====================================================================
+        document.getElementById('expense-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (activeAdminRole !== 'admin2') return;
+            const date = document.getElementById('expense-date').value || todayISO();
+            const category = document.getElementById('expense-category').value;
+            const amount = Math.max(1, parseInt(document.getElementById('expense-amount').value || '0', 10));
+            const note = document.getElementById('expense-note').value.trim();
+
+            appData.expenses.unshift({
+                id: 'EXP-' + Date.now().toString().slice(-5),
+                date,
+                category,
+                amount,
+                note
+            });
+            saveToStorage();
+            document.getElementById('expense-amount').value = '';
+            document.getElementById('expense-note').value = '';
+            refreshAdminUI();
+            showToast('Pengeluaran tersimpan.');
+        });
+
+        function deleteExpense(id) {
+            if (activeAdminRole !== 'admin2') return;
+            appData.expenses = appData.expenses.filter((e) => e.id !== id);
+            saveToStorage();
+            refreshAdminUI();
+            showToast('Pengeluaran dihapus.');
+        }
+
+        function renderExpenseTable() {
+            const tbody = document.getElementById('expense-table-body');
+            if (!tbody) return;
+            if (appData.expenses.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-xs text-slate-400 font-semibold">Belum ada pengeluaran.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = appData.expenses.map((ex) => `
+                <tr class="hover:bg-slate-50/80">
+                    <td class="py-3 px-2 font-semibold text-slate-700">${formatDateIndo(ex.date)}</td>
+                    <td class="py-3 px-2"><span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-50 text-rose-700">${ex.category}</span></td>
+                    <td class="py-3 px-2 text-xs text-slate-600">${ex.note}</td>
+                    <td class="py-3 px-2 font-extrabold text-rose-700">${formatRupiah(ex.amount)}</td>
+                    <td class="py-3 px-2 text-right">
+                        <button type="button" onclick="deleteExpense('${ex.id}')" title="Hapus" class="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function exportFinancialCSV() {
+            if (activeAdminRole !== 'admin2') return;
+            const lines = [
+                ['Tipe', 'ID', 'Tanggal', 'Judul / Pelanggan / Kategori', 'Detail', 'Nominal (Rp)', 'Status'].join(',')
+            ];
+            appData.sales.forEach((s) => {
+                lines.push(['Penjualan', s.id, s.date, `"${s.customer}"`, `"${s.size} - ${s.trays} Rak"`, s.total, s.status].join(','));
+            });
+            appData.expenses.forEach((e) => {
+                lines.push(['Pengeluaran', e.id, e.date, `"${e.category}"`, `"${e.note}"`, -Math.abs(e.amount), 'Selesai'].join(','));
+            });
+
+            const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Laporan_Telur_Skie_Tenang_${todayISO()}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('Laporan CSV berhasil diunduh.');
+        }
+
+        // =====================================================================
+        // KELOLA GALERI PUBLIK (KOMPRESI OTOMATIS HTML5 CANVAS)
+        // =====================================================================
+        function compressImageFile(file, maxWidth = 960, quality = 0.78) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const scale = Math.min(1, maxWidth / img.width);
+                        const canvas = document.createElement('canvas');
+                        canvas.width = Math.round(img.width * scale);
+                        canvas.height = Math.round(img.height * scale);
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
+                    };
+                    img.onerror = reject;
+                    img.src = ev.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function handleGalleryFileSelect(event) {
+            const file = event.target.files?.[0];
+            const statusEl = document.getElementById('gal-file-status');
+            if (!file) {
+                uploadedMediaDataUrl = '';
+                statusEl.classList.add('hidden');
+                return;
+            }
+
+            if (file.type.startsWith('image/')) {
+                try {
+                    uploadedMediaDataUrl = await compressImageFile(file);
+                    uploadedMediaType = 'photo';
+                    document.getElementById('gal-type').value = 'photo';
+                    statusEl.textContent = `Foto dikompresi otomatis (${file.name})`;
+                    statusEl.classList.remove('hidden');
+                } catch (err) {
+                    showToast('Gagal memproses foto.', 'error');
+                }
+            } else if (file.type.startsWith('video/')) {
+                if (file.size > 4.5 * 1024 * 1024) {
+                    showToast('Video >4.5MB tidak muat di browser. Gunakan URL video.', 'warning');
+                    event.target.value = '';
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    uploadedMediaDataUrl = ev.target.result;
+                    uploadedMediaType = 'video';
+                    document.getElementById('gal-type').value = 'video';
+                    statusEl.textContent = `Video siap diunggah (${file.name})`;
+                    statusEl.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        document.getElementById('gallery-upload-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('gal-title').value.trim();
+            const type = document.getElementById('gal-type').value;
+            const category = document.getElementById('gal-category').value;
+            const urlVal = document.getElementById('gal-url-input').value.trim();
+            const desc = document.getElementById('gal-desc').value.trim();
+
+            const finalSrc = uploadedMediaDataUrl || urlVal;
+            if (!finalSrc) {
+                showToast('Pilih file atau masukkan URL foto/video.', 'warning');
+                return;
+            }
+
+            appData.gallery.unshift({
+                id: 'GAL-' + Date.now().toString().slice(-5),
+                type: uploadedMediaDataUrl ? uploadedMediaType : type,
+                category,
+                title,
+                url: finalSrc,
+                desc,
+                date: todayISO()
+            });
+
+            saveToStorage();
+            uploadedMediaDataUrl = '';
+            document.getElementById('gallery-upload-form').reset();
+            document.getElementById('gal-file-status').classList.add('hidden');
+            renderAdminGallery();
+            renderPublicGallery();
+            showToast('Media ditambahkan ke galeri publik.');
+        });
+
+        function deleteGalleryItem(id) {
+            appData.gallery = appData.gallery.filter((g) => g.id !== id);
+            saveToStorage();
+            renderAdminGallery();
+            renderPublicGallery();
+            showToast('Media galeri dihapus.');
+        }
+
+        function renderAdminGallery() {
+            const grid = document.getElementById('admin-gallery-grid');
+            if (!grid) return;
+            const filter = document.getElementById('admin-gallery-filter')?.value || 'all';
+            const items = appData.gallery.filter((g) => filter === 'all' || g.type === filter);
+
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-8 text-center text-xs text-slate-400 font-semibold">Belum ada media.</div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map((item) => {
+                const thumb = item.type === 'video'
+                    ? `<video src="${item.url}" muted class="w-full h-36 object-cover bg-slate-900"></video>`
+                    : `<img src="${item.url}" alt="${item.title}" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=Media'" class="w-full h-36 object-cover bg-slate-100">`;
+
+                return `
+                    <div class="rounded-2xl border border-slate-200 overflow-hidden bg-slate-50 flex flex-col justify-between">
+                        <div>
+                            ${thumb}
+                            <div class="p-3.5">
+                                <span class="text-[10px] font-extrabold uppercase text-amber-700">${item.type === 'video' ? 'Video' : 'Foto'} • ${item.category}</span>
+                                <h3 class="text-xs font-extrabold text-slate-900 mt-0.5 line-clamp-1">${item.title}</h3>
+                                <p class="text-[11px] text-slate-500 mt-1 line-clamp-2">${item.desc || '-'}</p>
+                            </div>
+                        </div>
+                        <div class="px-3.5 py-2.5 border-t border-slate-200/70 bg-white flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400">${formatDateIndo(item.date)}</span>
+                            <button type="button" onclick="deleteGalleryItem('${item.id}')" class="px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 text-[11px] font-bold cursor-pointer">
+                                <i class="fa-solid fa-trash mr-1"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // =====================================================================
+        // SIMPAN KONTAK, MEDSOS & PIN (KHUSUS ADMIN 2)
+        // =====================================================================
+        document.getElementById('contact-social-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (activeAdminRole !== 'admin2') return;
+
+            appData.contacts = {
+                wa1Name: document.getElementById('cfg-wa1-name').value.trim() || 'Esther',
+                wa1Phone: document.getElementById('cfg-wa1-phone').value.trim() || '082399639927',
+                wa2Name: document.getElementById('cfg-wa2-name').value.trim() || 'Rut',
+                wa2Phone: document.getElementById('cfg-wa2-phone').value.trim() || '081326562470',
+                instagram: document.getElementById('cfg-soc-instagram').value.trim(),
+                facebook: document.getElementById('cfg-soc-facebook').value.trim(),
+                tiktok: document.getElementById('cfg-soc-tiktok').value.trim()
+            };
+
+            saveToStorage();
+            renderContactsAndSocialUI();
+            showToast('Kontak & media sosial disimpan.');
+        });
+
+        document.getElementById('change-pin-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (activeAdminRole !== 'admin2') return;
+
+            const pin1 = document.getElementById('new-pin-admin1-input').value.trim();
+            const pin2 = document.getElementById('new-pin-admin2-input').value.trim();
+
+            if (!pin1 && !pin2) {
+                showToast('Isi PIN baru Admin 1 atau Admin 2.', 'warning');
+                return;
+            }
+            if (pin1 && !/^\d{4,8}$/.test(pin1)) {
+                showToast('PIN Admin 1 harus 4–8 digit angka.', 'error');
+                return;
+            }
+            if (pin2 && !/^\d{4,8}$/.test(pin2)) {
+                showToast('PIN Admin 2 harus 4–8 digit angka.', 'error');
+                return;
+            }
+
+            if (pin1) localStorage.setItem(PIN_ADMIN1_KEY, pin1);
+            if (pin2) localStorage.setItem(PIN_ADMIN2_KEY, pin2);
+
+            document.getElementById('new-pin-admin1-input').value = '';
+            document.getElementById('new-pin-admin2-input').value = '';
+            showToast('PIN admin diperbarui.');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('footer-year').textContent = new Date().getFullYear();
+            document.getElementById('sale-date').value = todayISO();
+            document.getElementById('harvest-date').value = todayISO();
+            document.getElementById('expense-date').value = todayISO();
+
+            loadFromStorage();
+            renderPublicGallery();
+            renderContactsAndSocialUI();
+            onSaleSizeChange();
+        });
+    </script>
+</body>
+</html>
+
