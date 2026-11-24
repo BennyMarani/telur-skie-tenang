@@ -117,14 +117,14 @@
                     </p>
 
                     <div class="pt-2 flex flex-wrap items-center gap-3">
-                        <button type="button" onclick="openWaOrderModal('wa1')" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/25 transition cursor-pointer">
+                        <a id="hero-wa-1-link" href="https://wa.me/6282399639927" target="_blank" rel="noopener noreferrer" onclick="return launchDirectWhatsApp(event, 'wa1')" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/25 transition cursor-pointer">
                             <i class="fa-brands fa-whatsapp text-base"></i>
                             <span id="hero-wa-1-label">Pesan via WA: Esther</span>
-                        </button>
-                        <button type="button" onclick="openWaOrderModal('wa2')" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm backdrop-blur-xs transition cursor-pointer">
+                        </a>
+                        <a id="hero-wa-2-link" href="https://wa.me/6281326562470" target="_blank" rel="noopener noreferrer" onclick="return launchDirectWhatsApp(event, 'wa2')" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm backdrop-blur-xs transition cursor-pointer">
                             <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i>
                             <span id="hero-wa-2-label">Pesan via WA: Rut</span>
-                        </button>
+                        </a>
                         <a href="#galeri-aktivitas" class="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-amber-400/15 hover:bg-amber-400/25 text-amber-200 border border-amber-400/30 font-bold text-sm transition">
                             <i class="fa-solid fa-circle-play"></i>
                             <span>Lihat Foto &amp; Video</span>
@@ -208,9 +208,9 @@
                             <span class="text-[11px] text-slate-400">Klik untuk fokus peta</span>
                         </div>
                         <div id="public-buyers-list" class="space-y-2.5 overflow-y-auto pr-1 flex-1"></div>
-                        <button type="button" onclick="openWaOrderModal('wa1')" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-xs transition cursor-pointer">
+                        <button type="button" onclick="launchDirectWhatsApp('wa1')" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-xs transition cursor-pointer">
                             <i class="fa-brands fa-whatsapp"></i>
-                            <span>Pesan &amp; Tandai Lokasi Anda</span>
+                            <span>Pesan Langsung via WhatsApp</span>
                         </button>
                     </div>
                 </div>
@@ -224,13 +224,70 @@
                     </span>
                     <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Hubungi Kontak Pemesanan</h2>
                     <p class="text-xs sm:text-sm text-slate-500 mt-1">
-                        Pilih kontak di bawah untuk melihat <strong class="text-slate-700">jumlah stok telur tersedia</strong> (Rak &amp; Butir), mengisi <strong class="text-slate-700">informasi pembeli</strong>, serta menentukan <strong class="text-slate-700">ukuran dan jumlah pesanan</strong> langsung ke WhatsApp.
+                        Klik kontak WhatsApp di bawah untuk langsung membuka chat berisi <strong class="text-slate-700">stok telur terkini</strong> serta format isian <strong class="text-slate-700">Nama Pembeli, Ukuran, Jumlah Rak, dan Alamat Rumah</strong>.
                     </p>
                 </div>
 
                 <!-- Kartu Kontak WhatsApp Esther & Rut -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                    <button type="button" onclick="openWaOrderModal('wa1')" class="w-full text-left group rounded-2xl p-5 border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white hover:border-emerald-500 hover:shadow-lg transition-all flex items-center justify-between gap-4 cursor-pointer">
+                    <a id="card-wa-1-link" href="https://wa.me/6282399639927" target="_blank" rel="noopener noreferrer" onclick="return launchDirectWhatsApp(event, 'wa1')" class="w-full text-left group rounded-2xl p-5 border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white hover:border-emerald-500 hover:shadow-lg transition-all flex items-center justify-between gap-4 cursor-pointer">
+                        <div class="flex items-center gap-4 min-w-0">
+                            <div id="card-wa-1-avatar" class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform shrink-0">
+                                E
+                            </div>
+                            <div class="min-w-0">
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700">Kontak Pemesanan 1</span>
+                                <h3 id="card-wa-1-name" class="text-lg font-extrabold text-slate-900 truncate">Esther</h3>
+                                <p id="card-wa-1-phone" class="text-sm font-semibold text-slate-600 flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-phone text-xs text-emerald-600"></i>
+                                    <span>082399639927</span>
+                                </p>
+                            </div>
+                        </div>
+                        <span class="px-4 py-2.5 rounded-xl bg-emerald-600 group-hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center gap-1.5 shadow-xs shrink-0 transition">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Chat WA</span>
+                        </span>
+                    </a>
+
+                    <a id="card-wa-2-link" href="https://wa.me/6281326562470" target="_blank" rel="noopener noreferrer" onclick="return launchDirectWhatsApp(event, 'wa2')" class="w-full text-left group rounded-2xl p-5 border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white hover:border-emerald-500 hover:shadow-lg transition-all flex items-center justify-between gap-4 cursor-pointer">
+                        <div class="flex items-center gap-4 min-w-0">
+                            <div id="card-wa-2-avatar" class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform shrink-0">
+                                R
+                            </div>
+                            <div class="min-w-0">
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700">Kontak Pemesanan 2</span>
+                                <h3 id="card-wa-2-name" class="text-lg font-extrabold text-slate-900 truncate">Rut</h3>
+                                <p id="card-wa-2-phone" class="text-sm font-semibold text-slate-600 flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-phone text-xs text-emerald-600"></i>
+                                    <span>081326562470</span>
+                                </p>
+                            </div>
+                        </div>
+                        <span class="px-4 py-2.5 rounded-xl bg-emerald-600 group-hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center gap-1.5 shadow-xs shrink-0 transition">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Chat WA</span>
+                        </span>
+                    </a>
+                </div>
+                </div>
+            </section>
+
+            <!-- Bagian Kontak Pemesanan WhatsApp & Media Sosial -->
+            <section id="kontak-pemesanan" class="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/80 shadow-xs space-y-6 scroll-mt-24">
+                <div class="max-w-2xl">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-600 mb-1">
+                        <i class="fa-brands fa-whatsapp"></i> Pemesanan Langsung WhatsApp
+                    </span>
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Hubungi Kontak Pemesanan</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        Klik kontak <strong class="text-slate-700">Esther</strong> atau <strong class="text-slate-700">Rut</strong> di bawah untuk langsung masuk ke WhatsApp dengan informasi <strong class="text-slate-700">stok telur terkini</strong> serta format pemesanan siap isi.
+                    </p>
+                </div>
+
+                <!-- Kartu Kontak WhatsApp Esther & Rut -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                    <button type="button" onclick="launchDirectWhatsApp('wa1')" class="w-full text-left group rounded-2xl p-5 border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white hover:border-emerald-500 hover:shadow-lg transition-all flex items-center justify-between gap-4 cursor-pointer">
                         <div class="flex items-center gap-4 min-w-0">
                             <div id="card-wa-1-avatar" class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform shrink-0">
                                 E
@@ -250,7 +307,7 @@
                         </span>
                     </button>
 
-                    <button type="button" onclick="openWaOrderModal('wa2')" class="w-full text-left group rounded-2xl p-5 border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white hover:border-emerald-500 hover:shadow-lg transition-all flex items-center justify-between gap-4 cursor-pointer">
+                    <button type="button" onclick="launchDirectWhatsApp('wa2')" class="w-full text-left group rounded-2xl p-5 border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white hover:border-emerald-500 hover:shadow-lg transition-all flex items-center justify-between gap-4 cursor-pointer">
                         <div class="flex items-center gap-4 min-w-0">
                             <div id="card-wa-2-avatar" class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform shrink-0">
                                 R
@@ -294,18 +351,18 @@
                             </div>
                             <div class="min-w-0">
                                 <div class="text-xs font-extrabold text-slate-900">Facebook</div>
-                                <div id="public-soc-facebook-label" class="text-xs text-slate-500 truncate">Telur Skie Tenang Jayapura</div>
-                            </div>
-                        </a>
-
-                        <a id="public-soc-tiktok" href="#kontak-pemesanan" onclick="return handleSocialClick(event, 'tiktok')" class="group flex items-center gap-3.5 p-4 rounded-2xl border border-slate-200 hover:border-slate-800 bg-slate-100/60 hover:shadow-md transition">
-                            <div class="w-11 h-11 rounded-xl bg-slate-900 text-white flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
-                                <i class="fa-brands fa-tiktok"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <div class="text-xs font-extrabold text-slate-900">TikTok</div>
-                                <div id="public-soc-tiktok-label" class="text-xs text-slate-500 truncate">@telurskietenang</div>
-                            </div>
+                    <div class="pt-2 flex flex-wrap items-center gap-3">
+                        <button type="button" onclick="launchDirectWhatsApp('wa1')" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/25 transition cursor-pointer">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span id="hero-wa-1-label">Pesan via WA: Esther</span>
+                        </button>
+                        <button type="button" onclick="launchDirectWhatsApp('wa2')" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm backdrop-blur-xs transition cursor-pointer">
+                            <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i>
+                            <span id="hero-wa-2-label">Pesan via WA: Rut</span>
+                        </button>
+                        <a href="#galeri-aktivitas" class="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-amber-400/15 hover:bg-amber-400/25 text-amber-200 border border-amber-400/30 font-bold text-sm transition">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <span>Lihat Foto &amp; Video</span>
                         </a>
                     </div>
                 </div>
@@ -693,7 +750,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs h-fit">
                         <h3 class="text-sm font-extrabold text-slate-900 mb-1">Tambah Titik Lokasi Pembeli</h3>
-                        <p class="text-xs text-slate-500 mb-4">Klik langsung pada peta atau isi koordinat untuk menandai lokasi pembeli di halaman utama.</p>
+                        <p class="text-xs text-slate-500 mb-4">Input lokasi pembeli oleh Admin. Klik langsung pada peta atau isi koordinat untuk menandai titik pengantaran di halaman utama.</p>
                         <form id="buyer-location-form" class="space-y-3">
                             <div>
                                 <label class="block text-xs font-bold text-slate-600 mb-1">Nama Pembeli / Toko</label>
@@ -1002,7 +1059,6 @@
 
         let activeAdminRole = null;
         let currentGalleryFilter = 'all';
-        let currentWaContactKey = 'wa1';
         let uploadedMediaDataUrl = '';
         let uploadedMediaType = 'photo';
         let prodSalesChartInstance = null;
@@ -1012,9 +1068,6 @@
         let publicMapMarkerById = {};
         let adminMapInstance = null;
         let adminMapMarkersLayer = null;
-        let waPickerMapInstance = null;
-        let waPickerMarker = null;
-        let waPickedLatLng = null;
 
         const JAYAPURA_CENTER = [-2.5650, 140.6950];
 
@@ -1310,9 +1363,79 @@
             }).join('');
         }
 
+        function buildDirectWaUrl(contactKey = 'wa1', preselectedSize = '') {
+            const isWa2 = contactKey === 'wa2';
+            const adminName = isWa2 ? (appData.contacts.wa2Name || 'Rut') : (appData.contacts.wa1Name || 'Esther');
+            const phoneIntl = normalizePhoneWA(isWa2 ? (appData.contacts.wa2Phone || '081326562470') : (appData.contacts.wa1Phone || '082399639927'));
+
+            const stockData = calculateStockBySize();
+            const stock = stockData.bySize;
+            const sizeField = preselectedSize ? preselectedSize : '(Kecil / Sedang / Besar)';
+
+            const message = [
+                `Halo ${adminName}, berikut *Stok Telur Skie Tenang* yang tersedia saat ini:`,
+                `- Total Stok: ${stockData.totalTrays} Rak (${stockData.totalEggs.toLocaleString('id-ID')} Butir)`,
+                `- Ukuran Kecil: ${stock.Kecil.trays} Rak (${stock.Kecil.eggs.toLocaleString('id-ID')} Butir)`,
+                `- Ukuran Sedang: ${stock.Sedang.trays} Rak (${stock.Sedang.eggs.toLocaleString('id-ID')} Butir)`,
+                `- Ukuran Besar: ${stock.Besar.trays} Rak (${stock.Besar.eggs.toLocaleString('id-ID')} Butir)`,
+                ``,
+                `Saya mau memesan telur dengan data berikut:`,
+                `Nama Pembeli: `,
+                `Pesan Ukuran: ${sizeField}`,
+                `Berapa Rak:  Rak`,
+                `Alamat Rumah: `
+            ].join('\n');
+
+            return `https://wa.me/${phoneIntl}?text=${encodeURIComponent(message)}`;
+        }
+
+        function launchDirectWhatsApp(event, contactKey = 'wa1', preselectedSize = '') {
+            const url = buildDirectWaUrl(contactKey, preselectedSize);
+            if (event && event.currentTarget && event.currentTarget.tagName === 'A') {
+                event.currentTarget.href = url;
+            }
+            window.open(url, '_blank', 'noopener,noreferrer');
+            if (event) event.preventDefault();
+            return false;
+        }
+
         function openWaOrderWithSize(size) {
-            openWaOrderModal('wa1');
-            selectWaOrderSize(size);
+            launchDirectWhatsApp('wa1', size);
+        }
+
+        function buildDirectWhatsAppUrl(contactKey = 'wa1', preselectedSize = '') {
+            const isWa2 = contactKey === 'wa2';
+            const adminName = isWa2 ? (appData.contacts.wa2Name || 'Rut') : (appData.contacts.wa1Name || 'Esther');
+            const phoneIntl = normalizePhoneWA(isWa2 ? (appData.contacts.wa2Phone || '081326562470') : (appData.contacts.wa1Phone || '082399639927'));
+
+            const stockData = calculateStockBySize();
+            const stock = stockData.bySize;
+            const stockLines = ['Kecil', 'Sedang', 'Besar']
+                .map((sz) => `- Ukuran ${sz}: ${stock[sz].trays} Rak (${stock[sz].eggs.toLocaleString('id-ID')} Butir)`)
+                .join('\n');
+
+            const message = [
+                `*STOK TELUR TERSEDIA SAAT INI — TELUR SKIE TENANG*`,
+                `Total Semua Ukuran: ${stockData.totalTrays} Rak (${stockData.totalEggs.toLocaleString('id-ID')} Butir)`,
+                stockLines,
+                ``,
+                ``,
+                `Halo ${adminName},`,
+                ``,
+                ``,
+                `Saya ingin memesan telur dari *Telur Skie Tenang*:`,
+                `- Nama Pembeli: `,
+                `- Pesan Ukuran: ${preselectedSize || ''}`,
+                `- Berapa Rak: `,
+                `- Alamat Rumah: `
+            ].join('\n');
+
+            return `https://wa.me/${phoneIntl}?text=${encodeURIComponent(message)}`;
+        }
+
+        function launchDirectWhatsApp(contactKey = 'wa1', preselectedSize = '') {
+            const url = buildDirectWhatsAppUrl(contactKey, preselectedSize);
+            window.open(url, '_blank', 'noopener,noreferrer');
         }
 
         function initPublicBuyersMap() {
@@ -1484,19 +1607,28 @@
             if (hero1) hero1.textContent = `Pesan via WA: ${wa1Name}`;
             if (hero2) hero2.textContent = `Pesan via WA: ${wa2Name}`;
 
+            const hero1Link = document.getElementById('hero-wa-1-link');
+            const hero2Link = document.getElementById('hero-wa-2-link');
+            if (hero1Link) hero1Link.href = buildDirectWaUrl('wa1');
+            if (hero2Link) hero2Link.href = buildDirectWaUrl('wa2');
+
             const card1Avatar = document.getElementById('card-wa-1-avatar');
             const card1Name = document.getElementById('card-wa-1-name');
             const card1Phone = document.querySelector('#card-wa-1-phone span');
+            const card1Link = document.getElementById('card-wa-1-link');
             if (card1Avatar) card1Avatar.textContent = wa1Name.charAt(0).toUpperCase();
             if (card1Name) card1Name.textContent = wa1Name;
             if (card1Phone) card1Phone.textContent = wa1Phone;
+            if (card1Link) card1Link.href = buildDirectWaUrl('wa1');
 
             const card2Avatar = document.getElementById('card-wa-2-avatar');
             const card2Name = document.getElementById('card-wa-2-name');
             const card2Phone = document.querySelector('#card-wa-2-phone span');
+            const card2Link = document.getElementById('card-wa-2-link');
             if (card2Avatar) card2Avatar.textContent = wa2Name.charAt(0).toUpperCase();
             if (card2Name) card2Name.textContent = wa2Name;
             if (card2Phone) card2Phone.textContent = wa2Phone;
+            if (card2Link) card2Link.href = buildDirectWaUrl('wa2');
 
             ['instagram', 'facebook', 'tiktok'].forEach((platform) => {
                 const labelEl = document.getElementById(`public-soc-${platform}-label`);
@@ -1529,230 +1661,6 @@
             window.open(url, '_blank', 'noopener,noreferrer');
             event.preventDefault();
             return false;
-        }
-
-        // =====================================================================
-        // MODAL PEMESANAN WHATSAPP (STOK LENGKAP, INFO PEMBELI & PESANAN)
-        // =====================================================================
-        function openWaOrderModal(contactKey = 'wa1') {
-            currentWaContactKey = contactKey === 'wa2' ? 'wa2' : 'wa1';
-            const isWa2 = currentWaContactKey === 'wa2';
-            const name = isWa2 ? (appData.contacts.wa2Name || 'Rut') : (appData.contacts.wa1Name || 'Esther');
-            const phone = isWa2 ? (appData.contacts.wa2Phone || '081326562470') : (appData.contacts.wa1Phone || '082399639927');
-
-            document.getElementById('wa-modal-title').textContent = `Pesan via WA ke ${name}`;
-            document.getElementById('wa-modal-subtitle').textContent = `Kontak: ${phone} • 1 Rak = ${EGGS_PER_TRAY} Butir`;
-            document.getElementById('wa-order-trays').value = '1';
-            document.getElementById('wa-order-customer').value = '';
-            document.getElementById('wa-order-address').value = '';
-            document.getElementById('wa-order-notes').value = '';
-            waPickedLatLng = null;
-            document.getElementById('wa-picked-coords-label').textContent = 'Klik pada peta untuk memilih titik pengantaran';
-
-            renderWaStockSummaryCards();
-            updateWaMessagePreview();
-
-            const modal = document.getElementById('wa-order-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-
-            setTimeout(() => initWaPickerMap(), 120);
-        }
-
-        function initWaPickerMap() {
-            const el = document.getElementById('wa-picker-map');
-            if (!el || typeof L === 'undefined') return;
-            if (!waPickerMapInstance) {
-                waPickerMapInstance = L.map('wa-picker-map').setView(JAYAPURA_CENTER, 12);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                    attribution: '&copy; OpenStreetMap'
-                }).addTo(waPickerMapInstance);
-
-                waPickerMapInstance.on('click', (e) => {
-                    setWaPickedLocation(e.latlng.lat, e.latlng.lng);
-                });
-            }
-            if (waPickerMarker) {
-                waPickerMapInstance.removeLayer(waPickerMarker);
-                waPickerMarker = null;
-            }
-            waPickerMapInstance.setView(JAYAPURA_CENTER, 12);
-            waPickerMapInstance.invalidateSize();
-        }
-
-        function setWaPickedLocation(lat, lng) {
-            waPickedLatLng = { lat: Number(lat.toFixed(5)), lng: Number(lng.toFixed(5)) };
-            if (waPickerMapInstance) {
-                if (waPickerMarker) {
-                    waPickerMarker.setLatLng([waPickedLatLng.lat, waPickedLatLng.lng]);
-                } else {
-                    waPickerMarker = L.marker([waPickedLatLng.lat, waPickedLatLng.lng]).addTo(waPickerMapInstance);
-                }
-                waPickerMapInstance.setView([waPickedLatLng.lat, waPickedLatLng.lng], 14);
-            }
-            document.getElementById('wa-picked-coords-label').textContent = `Titik dipilih: ${waPickedLatLng.lat}, ${waPickedLatLng.lng}`;
-            updateWaMessagePreview();
-        }
-
-        function useBrowserGeolocationForOrder() {
-            if (!navigator.geolocation) {
-                showToast('Browser tidak mendukung GPS.', 'warning');
-                return;
-            }
-            navigator.geolocation.getCurrentPosition(
-                (pos) => {
-                    setWaPickedLocation(pos.coords.latitude, pos.coords.longitude);
-                    showToast('Titik lokasi GPS Anda berhasil ditandai.');
-                },
-                () => {
-                    showToast('Izin lokasi ditolak. Silakan klik langsung pada peta.', 'warning');
-                },
-                { enableHighAccuracy: true, timeout: 8000 }
-            );
-        }
-
-        function closeWaOrderModal() {
-            const modal = document.getElementById('wa-order-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        function renderWaStockSummaryCards() {
-            const grid = document.getElementById('wa-stock-summary-grid');
-            const totalBadge = document.getElementById('wa-total-stock-badge');
-            if (!grid) return;
-
-            const stockData = calculateStockBySize();
-            const stock = stockData.bySize;
-            const chosenSize = document.getElementById('wa-order-size').value;
-            const sizes = ['Kecil', 'Sedang', 'Besar'];
-
-            if (totalBadge) {
-                totalBadge.textContent = `Total: ${stockData.totalTrays} Rak (${stockData.totalEggs.toLocaleString('id-ID')} Butir)`;
-            }
-
-            grid.innerHTML = sizes.map((sz) => {
-                const trays = stock[sz].trays;
-                const eggs = stock[sz].eggs;
-                const selected = sz === chosenSize;
-                return `
-                    <button type="button" onclick="selectWaOrderSize('${sz}')" class="text-left p-3 rounded-2xl border transition cursor-pointer ${selected ? 'border-emerald-500 bg-emerald-50 ring-2 ring-emerald-500/20' : 'border-slate-200 bg-slate-50/70 hover:border-emerald-300'}">
-                        <div class="text-[11px] font-extrabold uppercase text-slate-600">${sz}</div>
-                        <div class="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">${trays} Rak</div>
-                        <div class="text-[11px] font-semibold text-slate-500">${eggs.toLocaleString('id-ID')} Butir</div>
-                        <div class="text-[10px] font-bold mt-0.5 ${trays > 0 ? 'text-emerald-700' : 'text-rose-600'}">${trays > 0 ? 'Tersedia' : 'Habis'}</div>
-                    </button>
-                `;
-            }).join('');
-
-            sizes.forEach((sz) => {
-                const pill = document.getElementById(`wa-size-pill-${sz}`);
-                if (!pill) return;
-                pill.className = sz === chosenSize
-                    ? 'wa-size-pill py-2.5 px-3 rounded-xl border-2 border-emerald-600 bg-emerald-600 text-white text-xs font-extrabold shadow-xs transition cursor-pointer'
-                    : 'wa-size-pill py-2.5 px-3 rounded-xl border border-slate-200 bg-white hover:border-emerald-400 text-slate-700 text-xs font-extrabold transition cursor-pointer';
-            });
-        }
-
-        function selectWaOrderSize(size) {
-            const sel = document.getElementById('wa-order-size');
-            if (sel) {
-                sel.value = size;
-                updateWaMessagePreview();
-            }
-        }
-
-        function adjustWaOrderTrays(delta) {
-            const input = document.getElementById('wa-order-trays');
-            if (!input) return;
-            const current = parseInt(input.value || '1', 10) || 1;
-            input.value = Math.max(1, current + delta);
-            updateWaMessagePreview();
-        }
-
-        function handleWaLaunch(event) {
-            const customer = document.getElementById('wa-order-customer').value.trim();
-            if (!customer) {
-                event.preventDefault();
-                showToast('Silakan isi Nama Pembeli terlebih dahulu.', 'warning');
-                document.getElementById('wa-order-customer').focus();
-                return false;
-            }
-
-            const shouldSaveToMap = document.getElementById('wa-save-to-map-checkbox')?.checked;
-            const address = document.getElementById('wa-order-address').value.trim();
-            const chosenSize = document.getElementById('wa-order-size').value || 'Sedang';
-            const trays = Math.max(1, parseInt(document.getElementById('wa-order-trays').value || '1', 10));
-
-            if (shouldSaveToMap && (waPickedLatLng || address)) {
-                const coords = waPickedLatLng || {
-                    lat: Number((JAYAPURA_CENTER[0] + (Math.random() - 0.5) * 0.03).toFixed(5)),
-                    lng: Number((JAYAPURA_CENTER[1] + (Math.random() - 0.5) * 0.04).toFixed(5))
-                };
-                appData.buyerLocations.unshift({
-                    id: 'LOC-' + Date.now().toString().slice(-5),
-                    name: customer,
-                    address: address || 'Wilayah Jayapura',
-                    size: chosenSize,
-                    trays,
-                    lat: coords.lat,
-                    lng: coords.lng,
-                    date: todayISO()
-                });
-                saveToStorage();
-                renderPublicBuyersMap();
-            }
-
-            closeWaOrderModal();
-            return true;
-        }
-
-        function updateWaMessagePreview() {
-            const isWa2 = currentWaContactKey === 'wa2';
-            const adminName = isWa2 ? (appData.contacts.wa2Name || 'Rut') : (appData.contacts.wa1Name || 'Esther');
-            const phoneIntl = normalizePhoneWA(isWa2 ? (appData.contacts.wa2Phone || '081326562470') : (appData.contacts.wa1Phone || '082399639927'));
-
-            const chosenSize = document.getElementById('wa-order-size').value || 'Sedang';
-            const trays = Math.max(1, parseInt(document.getElementById('wa-order-trays').value || '1', 10));
-            const totalOrderEggs = trays * EGGS_PER_TRAY;
-            const customer = document.getElementById('wa-order-customer').value.trim();
-            const address = document.getElementById('wa-order-address').value.trim();
-            const notes = document.getElementById('wa-order-notes').value.trim();
-
-            const stockData = calculateStockBySize();
-            const stock = stockData.bySize;
-            renderWaStockSummaryCards();
-
-            document.getElementById('wa-order-summary-text').textContent = `Ukuran ${chosenSize} • ${trays} Rak (${totalOrderEggs.toLocaleString('id-ID')} Butir)`;
-            document.getElementById('wa-order-stock-note').textContent = `Stok ${chosenSize}: ${stock[chosenSize].trays} Rak (${stock[chosenSize].eggs.toLocaleString('id-ID')} Butir)`;
-
-            const stockLines = ['Kecil', 'Sedang', 'Besar']
-                .map((sz) => `- Ukuran ${sz}: ${stock[sz].trays} Rak (${stock[sz].eggs.toLocaleString('id-ID')} Butir)`)
-                .join('\n');
-
-            const mapPinUrl = waPickedLatLng ? `https://maps.google.com/?q=${waPickedLatLng.lat},${waPickedLatLng.lng}` : null;
-
-            const message = [
-                `Halo ${adminName}, saya mau memesan telur dari *Telur Skie Tenang*.`,
-                ``,
-                `*Jumlah Stok Telur Tersedia Saat Ini:*`,
-                `- Total Semua Ukuran: ${stockData.totalTrays} Rak (${stockData.totalEggs.toLocaleString('id-ID')} Butir)`,
-                stockLines,
-                ``,
-                `*Informasi Pembeli:*`,
-                `- Nama Pembeli: ${customer || '(Belum diisi)'}`,
-                address ? `- Alamat / No. HP: ${address}` : null,
-                mapPinUrl ? `- Titik Lokasi Peta: ${mapPinUrl}` : null,
-                ``,
-                `*Pesanan Telur:*`,
-                `- Ukuran Telur: ${chosenSize}`,
-                `- Jumlah Pesanan: ${trays} Rak (${totalOrderEggs.toLocaleString('id-ID')} Butir)`,
-                notes ? `- Catatan: ${notes}` : null
-            ].filter((line) => line !== null).join('\n');
-
-            document.getElementById('wa-message-preview').value = message;
-            document.getElementById('wa-launch-link').href = `https://wa.me/${phoneIntl}?text=${encodeURIComponent(message)}`;
         }
 
         // =====================================================================
