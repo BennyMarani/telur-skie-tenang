@@ -17,6 +17,10 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Leaflet CSS & JS (Peta Lokasi Pembeli) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 
@@ -72,6 +76,14 @@
                         <i class="fa-solid fa-photo-film text-amber-500"></i>
                         <span>Galeri Aktivitas</span>
                     </a>
+                    <a href="#stok-publik" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-egg text-amber-500"></i>
+                        <span>Stok Telur</span>
+                    </a>
+                    <a href="#peta-pembeli" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-map-location-dot text-rose-500"></i>
+                        <span>Peta Pembeli</span>
+                    </a>
                     <a href="#kontak-pemesanan" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                         <i class="fa-brands fa-whatsapp text-emerald-600"></i>
                         <span>Pesan Telur</span>
@@ -121,6 +133,25 @@
                 </div>
             </section>
 
+            <!-- Ketersediaan Stok Telur Real-Time di Halaman Utama (Tanpa Harga) -->
+            <section id="stok-publik" class="space-y-5 scroll-mt-24">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-600 mb-1">
+                            <i class="fa-solid fa-boxes-stacked"></i> Ketersediaan Hari Ini
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Stok Telur Tersedia</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Jumlah stok terkini di kandang (1 Rak = 30 Butir). Pilih ukuran untuk langsung memesan via WhatsApp.</p>
+                    </div>
+                    <div id="public-total-stock-pill" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-extrabold self-start sm:self-auto">
+                        <i class="fa-solid fa-egg text-emerald-600"></i>
+                        <span>Total Stok: 0 Rak (0 Butir)</span>
+                    </div>
+                </div>
+
+                <div id="public-stock-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5"></div>
+            </section>
+
             <!-- Galeri Foto & Video Aktivitas Peternakan -->
             <section id="galeri-aktivitas" class="space-y-5 scroll-mt-24">
                 <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -148,6 +179,41 @@
 
                 <!-- Grid Galeri Publik -->
                 <div id="public-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+            </section>
+
+            <!-- Peta Lokasi Pembeli yang Memesan -->
+            <section id="peta-pembeli" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-5 scroll-mt-24">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-rose-600 mb-1">
+                            <i class="fa-solid fa-map-location-dot"></i> Sebaran Pelanggan &amp; Pengantaran
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Peta Lokasi Pembeli yang Memesan</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Titik lokasi pelanggan yang memesan telur di wilayah Jayapura &amp; sekitarnya. Klik pin untuk melihat detail pesanan.</p>
+                    </div>
+                    <span id="public-map-count-badge" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-slate-100 text-slate-700 text-xs font-extrabold self-start sm:self-auto">
+                        <i class="fa-solid fa-location-dot text-rose-500"></i>
+                        <span>0 Titik Lokasi</span>
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
+                    <div class="lg:col-span-2 rounded-2xl overflow-hidden border border-slate-200 relative z-10 min-h-[320px] sm:min-h-[380px]">
+                        <div id="public-buyers-map" class="w-full h-full min-h-[320px] sm:min-h-[380px]"></div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 flex flex-col justify-between space-y-3 max-h-[380px]">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-slate-600">Daftar Lokasi Pembeli</span>
+                            <span class="text-[11px] text-slate-400">Klik untuk fokus peta</span>
+                        </div>
+                        <div id="public-buyers-list" class="space-y-2.5 overflow-y-auto pr-1 flex-1"></div>
+                        <button type="button" onclick="openWaOrderModal('wa1')" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-xs transition cursor-pointer">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Pesan &amp; Tandai Lokasi Anda</span>
+                        </button>
+                    </div>
+                </div>
             </section>
 
             <!-- Bagian Kontak Pemesanan WhatsApp & Media Sosial -->
@@ -301,6 +367,9 @@
                 </button>
                 <button type="button" id="admin-tab-galeri" onclick="switchAdminTab('galeri')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
                     <i class="fa-solid fa-photo-film"></i> Kelola Galeri
+                </button>
+                <button type="button" id="admin-tab-lokasi" onclick="switchAdminTab('lokasi')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
+                    <i class="fa-solid fa-map-pin"></i> Lokasi Pembeli
                 </button>
                 <button type="button" id="admin-tab-kontak" onclick="switchAdminTab('kontak')" class="admin-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap text-slate-600 hover:bg-slate-100 transition cursor-pointer">
                     <i class="fa-solid fa-address-book"></i> Kontak &amp; PIN
@@ -619,6 +688,74 @@
                 </div>
             </section>
 
+            <!-- PANEL 5B: KELOLA LOKASI PEMBELI (ADMIN 1 & ADMIN 2) -->
+            <section id="panel-lokasi" class="admin-panel hidden space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs h-fit">
+                        <h3 class="text-sm font-extrabold text-slate-900 mb-1">Tambah Titik Lokasi Pembeli</h3>
+                        <p class="text-xs text-slate-500 mb-4">Klik langsung pada peta atau isi koordinat untuk menandai lokasi pembeli di halaman utama.</p>
+                        <form id="buyer-location-form" class="space-y-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Nama Pembeli / Toko</label>
+                                <input type="text" id="loc-name" required placeholder="Contoh: Toko Sembako Abepura" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-rose-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Alamat / Wilayah</label>
+                                <input type="text" id="loc-address" required placeholder="Contoh: Jl. Raya Abepura, Jayapura" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-rose-500">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Ukuran Telur</label>
+                                    <select id="loc-size" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-rose-500">
+                                        <option value="Kecil">Kecil</option>
+                                        <option value="Sedang" selected>Sedang</option>
+                                        <option value="Besar">Besar</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Jumlah (Rak)</label>
+                                    <input type="number" id="loc-trays" min="1" value="5" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-rose-500">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Latitude</label>
+                                    <input type="number" step="any" id="loc-lat" required value="-2.5916" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-mono outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">Longitude</label>
+                                    <input type="number" step="any" id="loc-lng" required value="140.6690" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-mono outline-none">
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs sm:text-sm cursor-pointer">
+                                <i class="fa-solid fa-location-dot mr-1.5"></i> Simpan Titik Pembeli
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-extrabold text-slate-900">Peta &amp; Daftar Titik Pembeli Aktif</h3>
+                            <span class="text-[11px] text-slate-500">Klik peta untuk mengisi koordinat otomatis</span>
+                        </div>
+                        <div id="admin-buyers-map" class="w-full h-64 rounded-2xl border border-slate-200 z-10"></div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead class="border-b border-slate-200 text-slate-500 uppercase">
+                                    <tr>
+                                        <th class="py-2 px-2">Pembeli</th>
+                                        <th class="py-2 px-2">Alamat</th>
+                                        <th class="py-2 px-2">Pesanan</th>
+                                        <th class="py-2 px-2 text-right">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-locations-table-body" class="divide-y divide-slate-100"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- PANEL 6: KONTAK, MEDSOS & UBAH PIN (ADMIN 2) -->
             <section id="panel-kontak" class="admin-panel hidden space-y-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -727,65 +864,25 @@
                         <input type="text" id="wa-order-address" placeholder="Contoh: Entrop / 0812xxxx" oninput="updateWaMessagePreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
                     </div>
                 </div>
-            </div>
 
-            <!-- 3. Detail Pesanan Telur (Ukuran & Berapa Banyak) -->
-            <div class="space-y-3 pt-1 border-t border-slate-100">
-                <span class="block text-xs font-extrabold uppercase tracking-wider text-slate-500">3. Mau Beli Ukuran Apa &amp; Berapa Banyak</span>
-
-                <!-- Pilihan Ukuran Cepat -->
-                <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1.5">Pilih Ukuran Telur</label>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button type="button" id="wa-size-pill-Kecil" onclick="selectWaOrderSize('Kecil')" class="wa-size-pill py-2.5 px-3 rounded-xl border text-xs font-extrabold transition cursor-pointer">
-                            Kecil
-                        </button>
-                        <button type="button" id="wa-size-pill-Sedang" onclick="selectWaOrderSize('Sedang')" class="wa-size-pill py-2.5 px-3 rounded-xl border text-xs font-extrabold transition cursor-pointer">
-                            Sedang
-                        </button>
-                        <button type="button" id="wa-size-pill-Besar" onclick="selectWaOrderSize('Besar')" class="wa-size-pill py-2.5 px-3 rounded-xl border text-xs font-extrabold transition cursor-pointer">
-                            Besar
+                <!-- Pilih Titik Lokasi di Peta Mini (Opsional / Otomatis) -->
+                <div class="rounded-2xl border border-slate-200 bg-slate-50/70 p-3 space-y-2">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <span class="text-[11px] font-extrabold text-slate-700 flex items-center gap-1.5">
+                            <i class="fa-solid fa-map-pin text-rose-500"></i> Tandai Titik Lokasi Anda di Peta (Opsional)
+                        </span>
+                        <button type="button" onclick="useBrowserGeolocationForOrder()" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-[11px] font-bold text-slate-700 cursor-pointer">
+                            <i class="fa-solid fa-crosshairs text-emerald-600 mr-1"></i> Gunakan Lokasi GPS Saya
                         </button>
                     </div>
-                    <select id="wa-order-size" onchange="updateWaMessagePreview()" class="sr-only" aria-label="Ukuran Telur">
-                        <option value="Kecil">Kecil</option>
-                        <option value="Sedang" selected>Sedang</option>
-                        <option value="Besar">Besar</option>
-                    </select>
-                </div>
-
-                <!-- Kontrol Jumlah Pesanan (+/- Rak & Konversi Butir) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">Jumlah Pesanan (Rak)</label>
-                        <div class="flex items-center rounded-xl border border-slate-200 overflow-hidden bg-white">
-                            <button type="button" onclick="adjustWaOrderTrays(-1)" class="w-11 h-10 bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-base flex items-center justify-center transition cursor-pointer" aria-label="Kurangi 1 Rak">
-                                &minus;
-                            </button>
-                            <input type="number" id="wa-order-trays" min="1" step="1" value="1" oninput="updateWaMessagePreview()" class="w-full h-10 text-center text-sm font-extrabold text-slate-900 outline-none">
-                            <button type="button" onclick="adjustWaOrderTrays(1)" class="w-11 h-10 bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-base flex items-center justify-center transition cursor-pointer" aria-label="Tambah 1 Rak">
-                                +
-                            </button>
-                        </div>
+                    <div id="wa-picker-map" class="w-full h-36 rounded-xl border border-slate-200 z-10"></div>
+                    <div class="flex items-center justify-between text-[11px] text-slate-500">
+                        <span id="wa-picked-coords-label">Klik pada peta untuk memilih titik pengantaran</span>
+                        <label class="inline-flex items-center gap-1.5 font-bold text-slate-700 cursor-pointer">
+                            <input type="checkbox" id="wa-save-to-map-checkbox" checked class="rounded text-emerald-600">
+                            <span>Tampilkan di Peta Pembeli</span>
+                        </label>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">Catatan Tambahan</label>
-                        <input type="text" id="wa-order-notes" placeholder="Contoh: Ambil sore / Antar" oninput="updateWaMessagePreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
-                    </div>
-                </div>
-
-                <!-- Ringkasan Pesanan (Ukuran & Jumlah dalam Rak & Butir) -->
-                <div class="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-2">
-                    <div>
-                        <span class="block text-[11px] font-bold uppercase tracking-wider text-emerald-700">Ringkasan Pesanan</span>
-                        <span id="wa-order-summary-text" class="text-xs sm:text-sm font-extrabold text-slate-900">Ukuran Sedang • 1 Rak (30 Butir)</span>
-                    </div>
-                    <span id="wa-order-stock-note" class="text-xs font-bold text-emerald-700 text-right">Stok: 0 Rak</span>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">Pratinjau Pesan WhatsApp yang Akan Terkirim</label>
-                    <textarea id="wa-message-preview" rows="8" readonly class="w-full px-3.5 py-2.5 rounded-2xl border border-slate-200 bg-slate-50 text-xs text-slate-700 leading-relaxed outline-none"></textarea>
                 </div>
             </div>
 
@@ -910,12 +1007,23 @@
         let uploadedMediaType = 'photo';
         let prodSalesChartInstance = null;
         let stockCompChartInstance = null;
+        let publicMapInstance = null;
+        let publicMapMarkersLayer = null;
+        let publicMapMarkerById = {};
+        let adminMapInstance = null;
+        let adminMapMarkersLayer = null;
+        let waPickerMapInstance = null;
+        let waPickerMarker = null;
+        let waPickedLatLng = null;
+
+        const JAYAPURA_CENTER = [-2.5650, 140.6950];
 
         let appData = {
             harvests: [],
             sales: [],
             expenses: [],
             gallery: [],
+            buyerLocations: [],
             contacts: {
                 wa1Name: 'Esther',
                 wa1Phone: '082399639927',
@@ -1039,6 +1147,12 @@
                         desc: 'Dokumentasi video persiapan rak telur untuk pelanggan di Jayapura.',
                         date: todayISO(0)
                     }
+                ],
+                buyerLocations: [
+                    { id: 'LOC-01', name: 'Toko Sembako Abepura', address: 'Jl. Raya Abepura, Jayapura', size: 'Sedang', trays: 8, lat: -2.5964, lng: 140.6683, date: todayISO(-2) },
+                    { id: 'LOC-02', name: 'Warung Makan Sentani', address: 'Jl. Kemiri Sentani, Kab. Jayapura', size: 'Besar', trays: 6, lat: -2.5714, lng: 140.5186, date: todayISO(-1) },
+                    { id: 'LOC-03', name: 'Kios Mama Maria Entrop', address: 'Entrop, Jayapura Selatan', size: 'Kecil', trays: 4, lat: -2.5678, lng: 140.6962, date: todayISO(-1) },
+                    { id: 'LOC-04', name: 'Bakery Jayapura Kota', address: 'Mandala / Jayapura Utara', size: 'Sedang', trays: 6, lat: -2.5365, lng: 140.7082, date: todayISO(0) }
                 ]
             };
         }
@@ -1070,6 +1184,7 @@
                     appData.sales = Array.isArray(parsed.sales) ? parsed.sales : demo.sales;
                     appData.expenses = Array.isArray(parsed.expenses) ? parsed.expenses : demo.expenses;
                     appData.gallery = Array.isArray(parsed.gallery) && parsed.gallery.length > 0 ? parsed.gallery : demo.gallery;
+                    appData.buyerLocations = Array.isArray(parsed.buyerLocations) && parsed.buyerLocations.length > 0 ? parsed.buyerLocations : demo.buyerLocations;
                     appData.contacts = {
                         wa1Name: parsed.contacts?.wa1Name || 'Esther',
                         wa1Phone: parsed.contacts?.wa1Phone || '082399639927',
@@ -1085,6 +1200,7 @@
                     appData.sales = demo.sales;
                     appData.expenses = demo.expenses;
                     appData.gallery = demo.gallery;
+                    appData.buyerLocations = demo.buyerLocations;
                     saveToStorage();
                 }
             } catch (err) {
@@ -1094,6 +1210,7 @@
                 appData.sales = demo.sales;
                 appData.expenses = demo.expenses;
                 appData.gallery = demo.gallery;
+                appData.buyerLocations = demo.buyerLocations;
             }
         }
 
@@ -1104,9 +1221,12 @@
             appData.sales = demo.sales;
             appData.expenses = demo.expenses;
             appData.gallery = demo.gallery;
+            appData.buyerLocations = demo.buyerLocations;
             saveToStorage();
             refreshAdminUI();
+            renderPublicStockCards();
             renderPublicGallery();
+            renderPublicBuyersMap();
             showToast('Data demo berhasil dimuat ulang!');
         }
 
@@ -1143,8 +1263,136 @@
         }
 
         // =====================================================================
-        // RENDER HALAMAN PUBLIK (GALERI & KONTAK/MEDSOS)
+        // RENDER HALAMAN PUBLIK (STOK TELUR, GALERI, PETA PEMBELI & KONTAK)
         // =====================================================================
+        function renderPublicStockCards() {
+            const grid = document.getElementById('public-stock-grid');
+            const pill = document.querySelector('#public-total-stock-pill span');
+            if (!grid) return;
+
+            const stockData = calculateStockBySize();
+            const stock = stockData.bySize;
+            if (pill) {
+                pill.textContent = `Total Stok: ${stockData.totalTrays} Rak (${stockData.totalEggs.toLocaleString('id-ID')} Butir)`;
+            }
+
+            const sizes = [
+                { key: 'Kecil', desc: 'Cocok untuk rumah tangga & usaha kue', accent: 'from-sky-50 to-white border-sky-200', badge: 'bg-sky-100 text-sky-800' },
+                { key: 'Sedang', desc: 'Ukuran standar harian paling diminati', accent: 'from-amber-50 to-white border-amber-200', badge: 'bg-amber-100 text-amber-800' },
+                { key: 'Besar', desc: 'Pilihan jumbo untuk warung & bakery', accent: 'from-emerald-50 to-white border-emerald-200', badge: 'bg-emerald-100 text-emerald-800' }
+            ];
+
+            grid.innerHTML = sizes.map((item) => {
+                const info = stock[item.key];
+                const isAvail = info.trays > 0;
+                return `
+                    <div class="rounded-3xl p-5 sm:p-6 border bg-gradient-to-br ${item.accent} shadow-2xs flex flex-col justify-between gap-4">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="px-3 py-1 rounded-full text-xs font-extrabold ${item.badge}">Ukuran ${item.key}</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold ${isAvail ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-700'}">
+                                    ${isAvail ? 'Stok Tersedia' : 'Stok Habis'}
+                                </span>
+                            </div>
+                            <div class="pt-1">
+                                <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">${info.trays} Rak</div>
+                                <div class="text-xs sm:text-sm font-bold text-slate-600 mt-0.5">${info.eggs.toLocaleString('id-ID')} Butir Telur</div>
+                            </div>
+                            <p class="text-xs text-slate-500">${item.desc}</p>
+                        </div>
+
+                        <button type="button" onclick="openWaOrderWithSize('${item.key}')" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white text-xs font-extrabold flex items-center justify-center gap-2 transition cursor-pointer">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Pesan Ukuran ${item.key}</span>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openWaOrderWithSize(size) {
+            openWaOrderModal('wa1');
+            selectWaOrderSize(size);
+        }
+
+        function initPublicBuyersMap() {
+            const mapEl = document.getElementById('public-buyers-map');
+            if (!mapEl || typeof L === 'undefined') return;
+            if (!publicMapInstance) {
+                publicMapInstance = L.map('public-buyers-map').setView(JAYAPURA_CENTER, 12);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; OpenStreetMap'
+                }).addTo(publicMapInstance);
+                publicMapMarkersLayer = L.layerGroup().addTo(publicMapInstance);
+            }
+            renderPublicBuyersMap();
+        }
+
+        function renderPublicBuyersMap() {
+            const listEl = document.getElementById('public-buyers-list');
+            const badgeEl = document.querySelector('#public-map-count-badge span');
+            const locations = appData.buyerLocations || [];
+
+            if (badgeEl) {
+                badgeEl.textContent = `${locations.length} Titik Lokasi`;
+            }
+
+            if (listEl) {
+                if (locations.length === 0) {
+                    listEl.innerHTML = `<div class="py-8 text-center text-xs text-slate-400 font-semibold">Belum ada lokasi pembeli tercatat.</div>`;
+                } else {
+                    listEl.innerHTML = locations.map((loc) => `
+                        <button type="button" onclick="focusBuyerOnPublicMap('${loc.id}')" class="w-full text-left p-3 rounded-xl bg-white border border-slate-200/80 hover:border-rose-400 hover:shadow-xs transition cursor-pointer">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-xs font-extrabold text-slate-900 line-clamp-1">${loc.name}</span>
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-100 text-amber-800 shrink-0">${loc.size} • ${loc.trays} Rak</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 mt-1 line-clamp-1"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i>${loc.address}</p>
+                            <span class="block text-[10px] text-slate-400 mt-1">${formatDateIndo(loc.date)}</span>
+                        </button>
+                    `).join('');
+                }
+            }
+
+            if (!publicMapInstance || !publicMapMarkersLayer) return;
+            publicMapMarkersLayer.clearLayers();
+            publicMapMarkerById = {};
+
+            const bounds = [];
+            locations.forEach((loc) => {
+                const lat = Number(loc.lat);
+                const lng = Number(loc.lng);
+                if (Number.isNaN(lat) || Number.isNaN(lng)) return;
+
+                const marker = L.marker([lat, lng]).addTo(publicMapMarkersLayer);
+                marker.bindPopup(`
+                    <div style="min-width:170px;font-family:'Plus Jakarta Sans',sans-serif;">
+                        <strong style="font-size:13px;color:#0f172a;">${loc.name}</strong><br>
+                        <span style="font-size:11px;color:#475569;">${loc.address}</span><br>
+                        <span style="display:inline-block;margin-top:4px;padding:2px 8px;border-radius:999px;background:#fef3c7;color:#92400e;font-size:11px;font-weight:700;">
+                            Pesanan: ${loc.size} (${loc.trays} Rak / ${loc.trays * EGGS_PER_TRAY} Butir)
+                        </span>
+                    </div>
+                `);
+                publicMapMarkerById[loc.id] = marker;
+                bounds.push([lat, lng]);
+            });
+
+            if (bounds.length > 0) {
+                publicMapInstance.fitBounds(bounds, { padding: [35, 35], maxZoom: 13 });
+            }
+            setTimeout(() => publicMapInstance && publicMapInstance.invalidateSize(), 150);
+        }
+
+        function focusBuyerOnPublicMap(id) {
+            const loc = appData.buyerLocations.find((l) => l.id === id);
+            const marker = publicMapMarkerById[id];
+            if (!loc || !publicMapInstance) return;
+            publicMapInstance.setView([Number(loc.lat), Number(loc.lng)], 15, { animate: true });
+            if (marker) marker.openPopup();
+        }
+
         function setPublicGalleryFilter(filter) {
             currentGalleryFilter = filter;
             ['all', 'photo', 'video'].forEach((key) => {
@@ -1298,6 +1546,8 @@
             document.getElementById('wa-order-customer').value = '';
             document.getElementById('wa-order-address').value = '';
             document.getElementById('wa-order-notes').value = '';
+            waPickedLatLng = null;
+            document.getElementById('wa-picked-coords-label').textContent = 'Klik pada peta untuk memilih titik pengantaran';
 
             renderWaStockSummaryCards();
             updateWaMessagePreview();
@@ -1305,6 +1555,61 @@
             const modal = document.getElementById('wa-order-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+
+            setTimeout(() => initWaPickerMap(), 120);
+        }
+
+        function initWaPickerMap() {
+            const el = document.getElementById('wa-picker-map');
+            if (!el || typeof L === 'undefined') return;
+            if (!waPickerMapInstance) {
+                waPickerMapInstance = L.map('wa-picker-map').setView(JAYAPURA_CENTER, 12);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; OpenStreetMap'
+                }).addTo(waPickerMapInstance);
+
+                waPickerMapInstance.on('click', (e) => {
+                    setWaPickedLocation(e.latlng.lat, e.latlng.lng);
+                });
+            }
+            if (waPickerMarker) {
+                waPickerMapInstance.removeLayer(waPickerMarker);
+                waPickerMarker = null;
+            }
+            waPickerMapInstance.setView(JAYAPURA_CENTER, 12);
+            waPickerMapInstance.invalidateSize();
+        }
+
+        function setWaPickedLocation(lat, lng) {
+            waPickedLatLng = { lat: Number(lat.toFixed(5)), lng: Number(lng.toFixed(5)) };
+            if (waPickerMapInstance) {
+                if (waPickerMarker) {
+                    waPickerMarker.setLatLng([waPickedLatLng.lat, waPickedLatLng.lng]);
+                } else {
+                    waPickerMarker = L.marker([waPickedLatLng.lat, waPickedLatLng.lng]).addTo(waPickerMapInstance);
+                }
+                waPickerMapInstance.setView([waPickedLatLng.lat, waPickedLatLng.lng], 14);
+            }
+            document.getElementById('wa-picked-coords-label').textContent = `Titik dipilih: ${waPickedLatLng.lat}, ${waPickedLatLng.lng}`;
+            updateWaMessagePreview();
+        }
+
+        function useBrowserGeolocationForOrder() {
+            if (!navigator.geolocation) {
+                showToast('Browser tidak mendukung GPS.', 'warning');
+                return;
+            }
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    setWaPickedLocation(pos.coords.latitude, pos.coords.longitude);
+                    showToast('Titik lokasi GPS Anda berhasil ditandai.');
+                },
+                () => {
+                    showToast('Izin lokasi ditolak. Silakan klik langsung pada peta.', 'warning');
+                },
+                { enableHighAccuracy: true, timeout: 8000 }
+            );
         }
 
         function closeWaOrderModal() {
@@ -1374,6 +1679,31 @@
                 document.getElementById('wa-order-customer').focus();
                 return false;
             }
+
+            const shouldSaveToMap = document.getElementById('wa-save-to-map-checkbox')?.checked;
+            const address = document.getElementById('wa-order-address').value.trim();
+            const chosenSize = document.getElementById('wa-order-size').value || 'Sedang';
+            const trays = Math.max(1, parseInt(document.getElementById('wa-order-trays').value || '1', 10));
+
+            if (shouldSaveToMap && (waPickedLatLng || address)) {
+                const coords = waPickedLatLng || {
+                    lat: Number((JAYAPURA_CENTER[0] + (Math.random() - 0.5) * 0.03).toFixed(5)),
+                    lng: Number((JAYAPURA_CENTER[1] + (Math.random() - 0.5) * 0.04).toFixed(5))
+                };
+                appData.buyerLocations.unshift({
+                    id: 'LOC-' + Date.now().toString().slice(-5),
+                    name: customer,
+                    address: address || 'Wilayah Jayapura',
+                    size: chosenSize,
+                    trays,
+                    lat: coords.lat,
+                    lng: coords.lng,
+                    date: todayISO()
+                });
+                saveToStorage();
+                renderPublicBuyersMap();
+            }
+
             closeWaOrderModal();
             return true;
         }
@@ -1401,6 +1731,8 @@
                 .map((sz) => `- Ukuran ${sz}: ${stock[sz].trays} Rak (${stock[sz].eggs.toLocaleString('id-ID')} Butir)`)
                 .join('\n');
 
+            const mapPinUrl = waPickedLatLng ? `https://maps.google.com/?q=${waPickedLatLng.lat},${waPickedLatLng.lng}` : null;
+
             const message = [
                 `Halo ${adminName}, saya mau memesan telur dari *Telur Skie Tenang*.`,
                 ``,
@@ -1411,6 +1743,7 @@
                 `*Informasi Pembeli:*`,
                 `- Nama Pembeli: ${customer || '(Belum diisi)'}`,
                 address ? `- Alamat / No. HP: ${address}` : null,
+                mapPinUrl ? `- Titik Lokasi Peta: ${mapPinUrl}` : null,
                 ``,
                 `*Pesanan Telur:*`,
                 `- Ukuran Telur: ${chosenSize}`,
@@ -1427,17 +1760,17 @@
         // =====================================================================
         function getAllowedTabsForRole(role) {
             if (role === 'admin1') {
-                return ['stok', 'kasir', 'galeri'];
+                return ['stok', 'kasir', 'galeri', 'lokasi'];
             }
             if (role === 'admin2') {
-                return ['ringkasan', 'stok', 'kasir', 'pengeluaran', 'galeri', 'kontak'];
+                return ['ringkasan', 'stok', 'kasir', 'pengeluaran', 'galeri', 'lokasi', 'kontak'];
             }
             return [];
         }
 
         function applyRolePermissions() {
             const allowed = getAllowedTabsForRole(activeAdminRole);
-            const allTabs = ['ringkasan', 'stok', 'kasir', 'pengeluaran', 'galeri', 'kontak'];
+            const allTabs = ['ringkasan', 'stok', 'kasir', 'pengeluaran', 'galeri', 'lokasi', 'kontak'];
 
             allTabs.forEach((tab) => {
                 const btn = document.getElementById(`admin-tab-${tab}`);
@@ -1449,7 +1782,7 @@
             if (activeAdminRole === 'admin1') {
                 badge.textContent = 'Admin 1 • Operasional';
                 badge.className = 'hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800';
-                subtitle.textContent = 'Akses: Stok & Panen, Kasir Penjualan, dan Kelola Galeri Publik';
+                subtitle.textContent = 'Akses: Stok & Panen, Kasir, Galeri, dan Lokasi Pembeli';
             } else if (activeAdminRole === 'admin2') {
                 badge.textContent = 'Admin 2 • Super Admin';
                 badge.className = 'hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800';
@@ -1513,7 +1846,9 @@
             document.getElementById('admin-view').classList.add('hidden');
             document.getElementById('admin-view').classList.remove('flex');
             document.getElementById('public-view').classList.remove('hidden');
+            renderPublicStockCards();
             renderPublicGallery();
+            renderPublicBuyersMap();
             renderContactsAndSocialUI();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1546,6 +1881,8 @@
                 renderCharts();
             } else if (tabName === 'kasir') {
                 onSaleSizeChange();
+            } else if (tabName === 'lokasi') {
+                initAdminBuyersMap();
             }
         }
 
@@ -1563,6 +1900,7 @@
             renderHarvestTable();
             renderSalesTable();
             renderAdminGallery();
+            renderAdminLocationsTable();
             renderContactsAndSocialUI();
             onSaleSizeChange();
         }
@@ -2123,6 +2461,102 @@
         }
 
         // =====================================================================
+        // KELOLA LOKASI PEMBELI (ADMIN)
+        // =====================================================================
+        function initAdminBuyersMap() {
+            const el = document.getElementById('admin-buyers-map');
+            if (!el || typeof L === 'undefined') return;
+            if (!adminMapInstance) {
+                adminMapInstance = L.map('admin-buyers-map').setView(JAYAPURA_CENTER, 12);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; OpenStreetMap'
+                }).addTo(adminMapInstance);
+                adminMapMarkersLayer = L.layerGroup().addTo(adminMapInstance);
+
+                adminMapInstance.on('click', (e) => {
+                    document.getElementById('loc-lat').value = e.latlng.lat.toFixed(5);
+                    document.getElementById('loc-lng').value = e.latlng.lng.toFixed(5);
+                    showToast('Koordinat peta disalin ke formulir.');
+                });
+            }
+            renderAdminLocationsTable();
+            setTimeout(() => adminMapInstance && adminMapInstance.invalidateSize(), 150);
+        }
+
+        document.getElementById('buyer-location-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('loc-name').value.trim();
+            const address = document.getElementById('loc-address').value.trim();
+            const size = document.getElementById('loc-size').value;
+            const trays = Math.max(1, parseInt(document.getElementById('loc-trays').value || '1', 10));
+            const lat = parseFloat(document.getElementById('loc-lat').value);
+            const lng = parseFloat(document.getElementById('loc-lng').value);
+
+            if (Number.isNaN(lat) || Number.isNaN(lng)) {
+                showToast('Koordinat Latitude/Longitude tidak valid.', 'error');
+                return;
+            }
+
+            appData.buyerLocations.unshift({
+                id: 'LOC-' + Date.now().toString().slice(-5),
+                name,
+                address,
+                size,
+                trays,
+                lat,
+                lng,
+                date: todayISO()
+            });
+
+            saveToStorage();
+            document.getElementById('loc-name').value = '';
+            document.getElementById('loc-address').value = '';
+            renderAdminLocationsTable();
+            renderPublicBuyersMap();
+            showToast('Titik lokasi pembeli ditambahkan.');
+        });
+
+        function deleteBuyerLocation(id) {
+            appData.buyerLocations = appData.buyerLocations.filter((l) => l.id !== id);
+            saveToStorage();
+            renderAdminLocationsTable();
+            renderPublicBuyersMap();
+            showToast('Titik lokasi pembeli dihapus.');
+        }
+
+        function renderAdminLocationsTable() {
+            const tbody = document.getElementById('admin-locations-table-body');
+            const locations = appData.buyerLocations || [];
+
+            if (tbody) {
+                if (locations.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-xs text-slate-400 font-semibold">Belum ada titik lokasi pembeli.</td></tr>`;
+                } else {
+                    tbody.innerHTML = locations.map((loc) => `
+                        <tr class="hover:bg-slate-50/80">
+                            <td class="py-2.5 px-2 font-bold text-slate-900">${loc.name}</td>
+                            <td class="py-2.5 px-2 text-slate-600">${loc.address}</td>
+                            <td class="py-2.5 px-2 font-semibold text-amber-700">${loc.size} • ${loc.trays} Rak</td>
+                            <td class="py-2.5 px-2 text-right">
+                                <button type="button" onclick="deleteBuyerLocation('${loc.id}')" class="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    `).join('');
+                }
+            }
+
+            if (adminMapInstance && adminMapMarkersLayer) {
+                adminMapMarkersLayer.clearLayers();
+                locations.forEach((loc) => {
+                    L.marker([Number(loc.lat), Number(loc.lng)])
+                        .addTo(adminMapMarkersLayer)
+                        .bindPopup(`<strong>${loc.name}</strong><br>${loc.address} (${loc.size} • ${loc.trays} Rak)`);
+                });
+            }
+        }
+
+        // =====================================================================
         // SIMPAN KONTAK, MEDSOS & PIN (KHUSUS ADMIN 2)
         // =====================================================================
         document.getElementById('contact-social-form').addEventListener('submit', (e) => {
@@ -2179,11 +2613,12 @@
             document.getElementById('expense-date').value = todayISO();
 
             loadFromStorage();
+            renderPublicStockCards();
             renderPublicGallery();
+            initPublicBuyersMap();
             renderContactsAndSocialUI();
             onSaleSizeChange();
         });
     </script>
 </body>
 </html>
-
